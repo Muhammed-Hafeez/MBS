@@ -1,0 +1,26 @@
+{
+  "name": "mbs",
+  "version": "1.0.0",
+  "description": "MBS the house demolishing company",
+  "main": "/api/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"nodemon ./backend/server.js",
+    "build":"node  ./backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Muhammed-Hafeez/MBS.git"
+  },
+  "author": "hafeez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Muhammed-Hafeez/MBS/issues"
+  },
+  "homepage": "https://github.com/Muhammed-Hafeez/MBS#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-validator": "^7.2.0",
+    "mongoose": "^8.6.1"
+  }
+}
