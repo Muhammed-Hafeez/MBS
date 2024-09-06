@@ -1,0 +1,167 @@
+For a frontend system design that complements your API endpoints, you need to focus on how to structure your components, manage state, and interact with the backend. Here's a detailed low-level frontend system design:
+
+### **1. Project Structure**
+
+#### **Directory Layout:**
+
+```
+/src
+  /components
+    /Project
+      - ProjectList.js
+      - ProjectDetail.js
+      - ProjectForm.js
+    /Service
+      - ServiceList.js
+      - ServiceDetail.js
+      - ServiceForm.js
+    /Testimonial
+      - TestimonialList.js
+      - TestimonialDetail.js
+      - TestimonialForm.js
+    /Contact
+      - ContactForm.js
+    /common
+      - Header.js
+      - Footer.js
+      - Loader.js
+  /contexts
+    - ProjectContext.js
+    - ServiceContext.js
+    - TestimonialContext.js
+  /hooks
+    - useProjects.js
+    - useServices.js
+    - useTestimonials.js
+    - useContact.js
+  /utils
+    - api.js
+    - validation.js
+  /styles
+    - styles.css
+  - App.js
+  - index.js
+```
+
+### **2. Components**
+
+#### **Project Components:**
+
+- **ProjectList.js**
+  - **Description:** Displays a list of all projects.
+  - **Features:** Fetches projects from `/projects` endpoint and renders them.
+
+- **ProjectDetail.js**
+  - **Description:** Displays details of a single project.
+  - **Features:** Fetches project details from `/projects/:id` endpoint based on URL params.
+
+- **ProjectForm.js**
+  - **Description:** Form to create or update a project.
+  - **Features:** Handles form submission to `/projects` or `/projects/:id` endpoint.
+
+#### **Service Components:**
+
+- **ServiceList.js**
+  - **Description:** Displays a list of all services.
+  - **Features:** Fetches services from `/services` endpoint and renders them.
+
+- **ServiceDetail.js**
+  - **Description:** Displays details of a single service.
+  - **Features:** Fetches service details from `/services/:id` endpoint based on URL params.
+
+- **ServiceForm.js**
+  - **Description:** Form to create or update a service.
+  - **Features:** Handles form submission to `/services` or `/services/:id` endpoint.
+
+#### **Testimonial Components:**
+
+- **TestimonialList.js**
+  - **Description:** Displays a list of all testimonials.
+  - **Features:** Fetches testimonials from `/testimonials` endpoint and renders them.
+
+- **TestimonialDetail.js**
+  - **Description:** Displays details of a single testimonial.
+  - **Features:** Fetches testimonial details from `/testimonials/:id` endpoint based on URL params.
+
+- **TestimonialForm.js**
+  - **Description:** Form to create or update a testimonial.
+  - **Features:** Handles form submission to `/testimonials` or `/testimonials/:id` endpoint.
+
+#### **Contact Components:**
+
+- **ContactForm.js**
+  - **Description:** Form to submit contact messages.
+  - **Features:** Handles form submission to `/contact` endpoint.
+
+#### **Common Components:**
+
+- **Header.js** and **Footer.js**
+  - **Description:** Common layout components for navigation and footer.
+
+- **Loader.js**
+  - **Description:** Displays a loading spinner or animation during data fetch operations.
+
+### **3. Contexts**
+
+- **ProjectContext.js**
+  - **Purpose:** Manages global state for projects.
+  - **Features:** Provides methods to fetch, create, update, and delete projects.
+
+- **ServiceContext.js**
+  - **Purpose:** Manages global state for services.
+  - **Features:** Provides methods to fetch, create, update, and delete services.
+
+- **TestimonialContext.js**
+  - **Purpose:** Manages global state for testimonials.
+  - **Features:** Provides methods to fetch, create, update, and delete testimonials.
+
+### **4. Hooks**
+
+- **useProjects.js**
+  - **Purpose:** Custom hook for managing project data and API interactions.
+  - **Features:** Functions to fetch, create, update, and delete projects.
+
+- **useServices.js**
+  - **Purpose:** Custom hook for managing service data and API interactions.
+  - **Features:** Functions to fetch, create, update, and delete services.
+
+- **useTestimonials.js**
+  - **Purpose:** Custom hook for managing testimonial data and API interactions.
+  - **Features:** Functions to fetch, create, update, and delete testimonials.
+
+- **useContact.js**
+  - **Purpose:** Custom hook for managing contact form submissions.
+  - **Features:** Function to handle contact form submission.
+
+### **5. Utilities**
+
+- **api.js**
+  - **Purpose:** Contains functions for making API requests to different endpoints.
+  - **Features:** Functions like `getProjects`, `createProject`, `updateProject`, `deleteProject`, etc.
+
+- **validation.js**
+  - **Purpose:** Contains validation logic for form inputs.
+  - **Features:** Functions to validate project, service, testimonial, and contact form data.
+
+### **6. Styling**
+
+- **styles.css**
+  - **Purpose:** Global CSS file for styling the application.
+  - **Features:** General layout styles, color schemes, and typography.
+
+### **7. App Integration**
+
+- **App.js**
+  - **Purpose:** Main application component that sets up routing and integrates contexts.
+  - **Features:** Defines routes for different components and uses context providers.
+
+- **index.js**
+  - **Purpose:** Entry point for the React application.
+  - **Features:** Renders the `App` component and integrates global CSS.
+
+### **Additional Considerations**
+
+- **Routing:** Use React Router for managing navigation and dynamic routes.
+- **State Management:** Context API for state management or consider using Redux for more complex state needs.
+- **Error Handling:** Display user-friendly error messages and handle API errors gracefully.
+- **Performance Optimization:** Use lazy loading and memoization techniques to enhance performance.
