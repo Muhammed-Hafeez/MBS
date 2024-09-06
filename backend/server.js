@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
-app.use(express.static("./frontend/build"));
+app.use(express.static("public"));
 app.get("/", (req, res) => {
-    res.status(200).sendFile("./frontend/build/index.html");
+    res.status(200).sendFile("./public/index.html");
 })
 // if development
 // app.listen(80, () => {
