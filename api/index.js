@@ -1,3 +1,5 @@
 const app = require('../backend/server');
 
-module.exports = app;
+module.exports = app;const app = require('../backend/server');
+
+export default app;
