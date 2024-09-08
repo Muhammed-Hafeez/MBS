@@ -1,0 +1,82 @@
+.Header {
+  @include Flex(center, start, row);
+  width: 100%;
+  height: 5rem;
+  border-bottom: 1px solid white;
+  animation: Headeranimation 0.8s ease-in-out 0s 1;
+  margin-bottom: 1rem;
+}
+.navigation {
+  @include Flex(center, space-between, row);
+  width: 100%;
+  height: 100%;
+}
+.navigation ul {
+  @include Flex();
+}
+.navlinks li {
+  margin: 0px 2rem;
+  padding: 0.4rem 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.navlinks li a {
+  transition: color 0.4s ease-in-out;
+  padding: 2px 0px;
+}
+.navlinks li a:hover {
+  color: $rare;
+}
+.Link-active {
+  color: $rare;
+  border-bottom: 2px solid $rare;
+}
+
+.logo {
+  margin: 0px 2rem;
+  
+}
+
+.btn {
+  background: #000;
+  margin-right: 2rem;
+  color: white;
+  border: 2px solid white;
+  padding: 0.8rem;
+  cursor: pointer;
+  font-variant: small-caps;
+  border-radius: 1rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  transition: all 0.4s ease-out;
+}
+.btn-active,
+.btn:hover {
+  border-color: rgb(255, 196, 0);
+  text-shadow: #fc0 0px 0 30px;
+}
+
+@keyframes Headeranimation {
+  0% {
+    transform: translateY(-5rem);
+    opacity: 60%;
+  }
+  100% {
+    transform: translateY(0vh);
+    opacity: 100%;
+  }
+}
+
+@media (width <= 800px) {
+  .navlinks-hidden{
+    display: none !important;
+  }
+  .btn-nav{
+    display: none !important;
+  }
+  .hamburger-menu{
+    display: inline-block;
+  }
+}

@@ -1,0 +1,32 @@
+.navlinkside li a {
+  border-bottom: 2px solid white;
+}
+.sidenav {
+  display: block;
+  background: #000000c2;
+  height: 100%;
+  width: 100%;
+  @include Flex(center, start, column);
+  transition: right 0.8s ease-out;
+  z-index: 2;
+  position:absolute;
+  top: 0%;
+  overflow-y: scroll;
+}
+.navlinkside {
+  width: 100%;
+}
+.close {
+  margin: 1rem 2rem;
+  align-self: flex-end;
+}
+.btn-sidenav {
+  align-self: flex-start;
+  margin: 1rem 2rem;
+}
+
+@media (width > 800px) {
+  .sidenav {
+    display: none;
+  }
+}
