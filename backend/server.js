@@ -7,9 +7,9 @@ app.get("*", (req, res) => {
 });
 
 // if development
-app.listen(80, () => {
-  console.log("http://localhost:80");
-});
+// app.listen(80, () => {
+//   console.log("http://localhost:80");
+// });
 
 //if production
 module.exports = app;
