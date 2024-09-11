@@ -1,13 +1,13 @@
 import React from "react";
-import Hero from "../ui/hero/Hero";
-import { AboutCardHome } from "../ui/cards/AboutCards";
+import Hero from "../components/Hero.js"
+import { AboutCardHome } from "../components/AboutCards.js";
 import { NavLink } from "react-router-dom";
-import ServiceCard from "../ui/cards/serviceCard";
-import ProjectsGallery from "../ui/cards/ProjectsGallery";
+import ServiceCard from "../components/serviceCard.js";
+import ProjectsGallery from "../components/ProjectsGallery.js";
 function Home() {
   return (
     <div>
-      <Hero />
+      <Hero/>
       <div className="home_about">
         <h1 className="title col-rare about_title">about us</h1>
         <AboutCardHome>

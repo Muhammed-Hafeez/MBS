@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../assets/logo.jpeg";
+import logo from "../../assets/logo.jpeg";
 function NavLinks({ navlinkClasses = "", setToggleNav = null }) {
   function toggleNavigation() {
     if (setToggleNav != null) {

@@ -2,7 +2,7 @@ import { Header, NavLinks } from "./components/common/Header";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import SideNav from "./components/common/SideNav";
 import { useState } from "react";
-import Home from "./components/pages/Home";
+import Home from "./pages/Home";
 
 function App() {
   const [toggleNav, setToggleNav] = useState("100vw");
