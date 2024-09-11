@@ -1,0 +1,145 @@
+.col-rare {
+  color: $rare;
+}
+//about
+.home_about {
+  width: 100%;
+  .about_title{
+    margin: 2rem;
+  }
+}
+.about_sections {
+  @include Flex(center, center, row-reverse);
+  .image {
+    width: 40%;
+    padding: 20px;
+    order: 1;
+    img {
+      border: 2px solid white;
+      border-radius: 0.5rem;
+      width: 100%;
+    }
+  }
+  .text_section {
+    width: 60%;
+  }
+  .aboutCardChildren{
+    margin: 2rem 0px;
+    display: flex;
+  }
+}
+.home_about:nth-child(odd) {
+  background: $secondary;
+  .about_sections {
+    flex-direction: row;
+    color: black;
+  }
+}
+
+//sevices
+.service-container {
+  margin: 2rem;
+  .services {
+    @include Flex();
+
+    .service_card {
+      @include Flex(center, center, column);
+      border: 2px solid white;
+      padding: 0.8rem;
+      margin: 1rem 0.5rem;
+      transition: border-color 0.4s ease-out;
+
+      h1 {
+        font-size: 32px;
+        align-self: flex-start;
+      }
+      .service_icon {
+        margin: 1rem 0px;
+        width: fit-content;
+        border: 2px solid $secondary;
+        border-radius: 100%;
+        padding: 20px;
+        transition: all 0.4s ease-out;
+      }
+    }
+    .service_card:hover,
+    .service_card:active {
+      border: 2px solid $rare;
+      .service_icon {
+        border: 2px solid $rare;
+        color: $rare;
+        transform: rotate(1turn);
+      }
+    }
+  }
+}
+
+.projects_container {
+  margin-top: 2rem;
+  background: $secondary;
+  color: black;
+  padding: 2rem 0px;
+
+  .title {
+    color: $sec-rare;
+  }
+  .title,
+  .gallery-box {
+    margin: 0px 2rem;
+  }
+  .gallery-box {
+    padding: 1rem 0px 0px 0px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 5px;
+
+    .gallery-item {
+      width: 100%;
+      border-collapse: collapse;
+      box-sizing: border-box;
+      overflow: hidden;
+      position: relative;
+      color: white;
+      img {
+        width: 100%;
+        transition: filter 0.8s ease-out;
+      }
+    }
+    .gallery-item:hover,
+    .gallery-item:active {
+      img {
+        cursor: pointer;
+        filter: brightness(60%);
+      }
+    }
+  }
+}
+
+@media (width <= 700px) {
+  .services {
+    flex-direction: column !important;
+    .service_card{
+      margin: 1rem 0px;
+    }
+  }
+  .about_sections {
+    flex-direction: column-reverse;
+    margin: 2rem 0px;
+    .image{
+      width: 90vw;
+    }
+    .text_section{
+      width: 90vw;
+    }
+    .aboutCardChildren{
+      flex-wrap: wrap;
+    }
+  }
+  .gallery-box {
+    grid-template-columns: minmax(90vw, 1fr) !important;
+    margin: 0px 10px !important;
+  }
+  .gallery-item{
+    justify-self: center;
+  }
+}

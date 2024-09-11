@@ -1,0 +1,13 @@
+.hero {
+  background: $secondary;
+  padding: 2rem;
+  //   width: 100%;
+  @include Flex();
+  color: black;
+}
+@media (width < 762px) {
+  .hero{
+    @include Flex(space-between , space-between , column)
+  }
+  
+}

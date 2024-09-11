@@ -54,7 +54,7 @@ function Header({ setToggleNav }) {
       <nav className="navigation">
         <div className="logo">
           <NavLink to="/">
-            <img src={logo} alt="MBS" style={{ width: "4rem" }} />
+            <img src={logo} alt="MBS" />
           </NavLink>
         </div>
         <NavLinks navlinkClasses="navlinks navlinks-hidden" />

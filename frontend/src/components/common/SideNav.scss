@@ -8,10 +8,10 @@
   width: 100%;
   @include Flex(center, start, column);
   transition: right 0.8s ease-out;
-  z-index: 2;
-  position:absolute;
+  z-index: 3000;
+  position:fixed;
   top: 0%;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 .navlinkside {
   width: 100%;

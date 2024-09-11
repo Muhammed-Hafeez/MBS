@@ -1,10 +1,14 @@
 .Header {
   @include Flex(center, start, row);
   width: 100%;
-  height: 5rem;
   border-bottom: 1px solid white;
   animation: Headeranimation 0.8s ease-in-out 0s 1;
-  margin-bottom: 1rem;
+  margin-bottom: 0.2rem;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #000000b7;
 }
 .navigation {
   @include Flex(center, space-between, row);
@@ -35,7 +39,10 @@
 
 .logo {
   margin: 0px 2rem;
-  
+  img{
+    width: 4.5rem;
+    margin: 0.5rem;
+  }
 }
 
 .btn {
@@ -70,13 +77,13 @@
 }
 
 @media (width <= 800px) {
-  .navlinks-hidden{
+  .navlinks-hidden {
     display: none !important;
   }
-  .btn-nav{
+  .btn-nav {
     display: none !important;
   }
-  .hamburger-menu{
+  .hamburger-menu {
     display: inline-block;
   }
 }
