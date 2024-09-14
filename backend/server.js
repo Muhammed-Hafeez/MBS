@@ -14,9 +14,8 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
-console.log(process.env.MODE);
 
-if (process.env.MODE !== "production") {
+if (process.env.MODE === "development") {
   app.listen(80, () => {
     console.log(`in mode: ${process.env.MODE} http://localhost:80`);
   });
