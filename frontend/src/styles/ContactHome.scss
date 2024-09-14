@@ -1,0 +1,48 @@
+.ContactHome {
+  padding: 1rem 2rem;
+  .ContactForm {
+    @include Flex(start, start, column);
+    width: fit-content;
+    margin: 1rem 0px;
+    %shared {
+      padding: 0.6rem;
+      width: 24rem;
+      margin: 0.8rem 0px;
+      outline: none;
+      font-size: larger;
+      background: #000;
+      border: 1px solid rgb(255, 255, 255);
+      color: white;
+    }
+    input {
+      @extend %shared;
+    }
+    .message {
+      @extend %shared;
+      height: 8rem;
+      outline: none;
+      resize: none;
+    }
+    span {
+      @include Flex();
+      input:nth-child(2) {
+        margin: 0px 2rem;
+      }
+    }
+  }
+}
+
+@media (width <= 950px) {
+  .ContactForm span {
+    flex-direction: column !important;
+    input {
+      margin: 0.8rem 0px !important;
+    }
+  }
+}
+@media (width <= 450px) {
+    %shared{
+        font-size: medium;
+        width: 18rem;
+    }
+}

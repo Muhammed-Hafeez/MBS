@@ -1,0 +1,33 @@
+//about
+.home_about {
+  width: 100%;
+  .about_title {
+    margin: 1rem 2rem;
+  }
+}
+.about_sections {
+  @include Flex(center, center, row-reverse);
+  .image {
+    width: 40%;
+    padding: 20px;
+    order: 1;
+    img {
+      border: 2px solid white;
+      border-radius: 0.5rem;
+      width: 100%;
+    }
+  }
+  .text_section {
+    width: 60%;
+  }
+  .aboutCardChildren {
+    margin: 2rem 0px;
+    display: flex;
+  }
+}
+
+.about_sections:nth-child(odd) {
+  background: $secondary;
+  flex-direction: row;
+  color: black;
+}

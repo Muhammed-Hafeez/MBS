@@ -1,13 +1,14 @@
 import React from "react";
-import Hero from "../components/Hero.js"
+import Hero from "../components/Hero.js";
 import { AboutCardHome } from "../components/AboutCards.js";
 import { NavLink } from "react-router-dom";
 import ServiceCard from "../components/serviceCard.js";
 import ProjectsGallery from "../components/ProjectsGallery.js";
+import ContactHome from "../components/ContactHome.js";
 function Home() {
   return (
     <div>
-      <Hero/>
+      <Hero />
       <div className="home_about">
         <h1 className="title col-rare about_title">about us</h1>
         <AboutCardHome>
@@ -52,6 +53,7 @@ function Home() {
           "https://res.cloudinary.com/dbumvyukj/image/upload/v1725870936/bakkvwxk3iva8xvooprf.webp",
         ]}
       />
+      <ContactHome/>
     </div>
   );
 }

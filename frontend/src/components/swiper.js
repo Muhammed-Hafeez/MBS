@@ -24,7 +24,7 @@ const CustomSwiper = () => {
         onSwiper={(swiper) => console.log(swiper)}
         className="swiper"
         autoplay={{
-          delay: 10000,
+          delay: 3000,
           disableOnInteraction: false,
         }}
       >

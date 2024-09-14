@@ -2,7 +2,9 @@ $bg: #000000;
 $rare: #ffd700;
 $secondary: #f5f5dc;
 $sec-rare: #f0a500;
-
+.col-rare {
+  color: $rare;
+}
 // #FFD700 
 $caption: 12px "Roboto", sans-serif;
 $heading: 48px "Roboto", sans-serif;
