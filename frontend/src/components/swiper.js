@@ -1,8 +1,6 @@
-// Import Swiper React components
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/autoplay";
 const CustomSwiper = () => {
@@ -20,8 +18,6 @@ const CustomSwiper = () => {
         }}
         spaceBetween={2}
         slidesPerView={1}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
         className="swiper"
         autoplay={{
           delay: 3000,
@@ -47,7 +43,7 @@ const CustomSwiper = () => {
           />
         </SwiperSlide>
       </Swiper>
-      <div class="swiper-pagination"></div>
+      <div className="swiper-pagination"></div>
     </div>
   );
 };

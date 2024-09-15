@@ -25,8 +25,7 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": [
-    ]
+    "extends": []
   },
   "browserslist": {
     "production": [
@@ -41,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-transform-private-property-in-object": "^7.24.7",
     "@eslint/js": "^9.10.0",
     "@iconify/react": "^5.0.2",
     "eslint": "^9.10.0",

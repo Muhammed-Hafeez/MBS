@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.jpeg";
+import PropTypes from "prop-types";
 function NavLinks({ navlinkClasses = "", setToggleNav = null }) {
   function toggleNavigation() {
     if (setToggleNav != null) {
@@ -14,6 +15,7 @@ function NavLinks({ navlinkClasses = "", setToggleNav = null }) {
           className={({ isActive }) => (isActive ? "Link-active" : "")}
           to="/"
           onClick={toggleNavigation}
+          aria-label="home page"
         >
           home
         </NavLink>
@@ -23,6 +25,7 @@ function NavLinks({ navlinkClasses = "", setToggleNav = null }) {
           className={({ isActive }) => (isActive ? "Link-active" : "")}
           to="/about"
           onClick={toggleNavigation}
+          aria-label="about page"
         >
           about
         </NavLink>
@@ -32,6 +35,7 @@ function NavLinks({ navlinkClasses = "", setToggleNav = null }) {
           className={({ isActive }) => (isActive ? "Link-active" : "")}
           to="/services"
           onClick={toggleNavigation}
+          aria-label="services page"
         >
           services
         </NavLink>
@@ -41,6 +45,7 @@ function NavLinks({ navlinkClasses = "", setToggleNav = null }) {
           className={({ isActive }) => (isActive ? "Link-active" : "")}
           to="/projects"
           onClick={toggleNavigation}
+          aria-label="projects page"
         >
           projects
         </NavLink>
@@ -48,13 +53,18 @@ function NavLinks({ navlinkClasses = "", setToggleNav = null }) {
     </ul>
   );
 }
+NavLinks.propTypes = {
+  navlinkClasses: PropTypes.string,
+  setToggleNav: PropTypes.any,
+};
+
 function Header({ setToggleNav }) {
   return (
     <header className="Header">
       <nav className="navigation">
         <div className="logo">
           <NavLink to="/">
-            <img src={logo} alt="MBS" />
+            <img loading="lazy" src={logo} alt="MBS" />
           </NavLink>
         </div>
         <NavLinks navlinkClasses="navlinks navlinks-hidden" />
@@ -76,5 +86,7 @@ function Header({ setToggleNav }) {
     </header>
   );
 }
+
+Header.propTypes = { setToggleNav: PropTypes.any };
 
 export { Header, NavLinks };

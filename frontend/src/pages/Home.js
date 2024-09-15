@@ -12,10 +12,10 @@ function Home() {
         <div className="home_about">
           <h1 className="title col-rare about_title">about us</h1>
           <AboutCardHome>
-            <NavLink className="btn" to={"/contact"}>
+            <NavLink className="btn" to={"/contact"} aria-label="contact page">
               get in touch
             </NavLink>
-            <NavLink className="btn" to={"/about"}>
+            <NavLink className="btn" to={"/about"} aria-label="about page">
               read more
             </NavLink>
           </AboutCardHome>

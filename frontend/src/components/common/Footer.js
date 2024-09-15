@@ -14,18 +14,22 @@ const Footer = () => {
       {
         mediaIcon: "ic:twotone-facebook",
         mediaLink: "/",
+        decription: "this is social media link",
       },
       {
         mediaIcon: "ic:twotone-whatsapp",
         mediaLink: "/",
+        decription: "this is social media link",
       },
       {
         mediaIcon: "ri:youtube-fill",
         mediaLink: "/",
+        decription: "this is social media link",
       },
       {
         mediaIcon: "mdi:instagram",
         mediaLink: "/",
+        decription: "this is social media link",
       },
     ],
   };
@@ -37,8 +41,8 @@ const Footer = () => {
           <ul className="social-icons">
             {data.socialMedia.map((m) => {
               return (
-                <li>
-                  <a href={m.mediaLink}>
+                <li key={m.mediaIcon}>
+                  <a href={m.mediaLink} aria-label={m.decription}>
                     <Icon icon={m.mediaIcon}></Icon>
                   </a>
                 </li>
@@ -49,42 +53,56 @@ const Footer = () => {
 
         <div className="footer__info">
           <div className="footer__column">
-            <h3>ABOUT COMPANY</h3>
+            <h2>ABOUT COMPANY</h2>
             <p>{data.aboutinfo}</p>
           </div>
 
           <div className="footer__column">
-            <h3>COMPANY</h3>
+            <h2>COMPANY</h2>
             <ul>
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/" aria-label="home page">
+                  Home
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/projects">Projects</NavLink>
+                <NavLink to="/projects" aria-label="projects page">
+                  Projects
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/about">Who We Are</NavLink>
+                <NavLink to="/about" aria-label="about page">
+                  who we are
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/services">Our Services</NavLink>
+                <NavLink to="/services" aria-label="our services page">
+                  Our Services
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/contact">Contact Us</NavLink>
+                <NavLink to="/contact" aria-label="contact page">
+                  Contact Us
+                </NavLink>
               </li>
             </ul>
           </div>
 
           <div className="footer__column">
-            <h3>DEMOLITION OFFICE</h3>
+            <h2>DEMOLITION OFFICE</h2>
             <p>{data.address}</p>
             <p>
-              <a href={`mailto:${data.email}`}>{data.email}</a>
+              <a href={`mailto:${data.email}`} aria-label="business email">
+                {data.email}
+              </a>
             </p>
-            <a href={`tel:+91${data.phoneno}`}>{data.phoneno}</a>
+            <a href={`tel:+91${data.phoneno}`} aria-label="business phoneno">
+              {data.phoneno}
+            </a>
           </div>
 
           <div className="footer__column">
-            <h3>BUSINESS HOURS</h3>
+            <h2>BUSINESS HOURS</h2>
             <p>{data.businessHours}</p>
           </div>
         </div>
