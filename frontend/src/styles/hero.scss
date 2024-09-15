@@ -1,7 +1,6 @@
 .hero {
   background: $secondary;
-  padding: 2rem;
-  //   width: 100%;
+  padding: $stdp;
   @include Flex();
   color: black;
 }

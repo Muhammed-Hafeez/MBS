@@ -1,6 +1,9 @@
 //sevices
 .service-container {
-  margin: 2rem;
+  margin: $stdm;
+  .title{
+    margin-bottom: $stdm - 1rem;
+  }
   .services {
     @include Flex();
 
@@ -37,20 +40,20 @@
 }
 
 .projects_container {
-  margin-top: 2rem;
+  margin-top: $stdm;
   background: $secondary;
   color: black;
-  padding: 2rem 0px;
+  padding: $stdp 0px;
 
   .title {
     color: $sec-rare;
   }
   .title,
   .gallery-box {
-    margin: 0px 2rem;
+    margin: 0px $stdm;
   }
   .gallery-box {
-    padding: 1rem 0px 0px 0px;
+    padding: $stdp 0px 0px 0px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 5px;
@@ -78,6 +81,9 @@
 }
 //respnsiveness
 @media (width <= 700px) {
+  .service-container{
+    margin:$stdm 1rem;
+  }
   .services {
     flex-direction: column !important;
     .service_card {
@@ -86,7 +92,7 @@
   }
   .about_sections , .about_sections:nth-child(odd){
     flex-direction: column-reverse;
-    margin: 2rem 0px;
+    margin: $stdm 0px;
     .image {
       width: 90vw;
     }

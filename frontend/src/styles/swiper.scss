@@ -2,7 +2,7 @@
   width: fit-content;
   @include Flex(center, center, column);
   background: $secondary;
-  margin: 5px;
+  // margin: 5px;
   border-radius: 0.5rem;
 }
 .swiper {
@@ -26,7 +26,7 @@
     width: 20px;
     height: 10px;
     background: rgb(0, 0, 0);
-    margin: 5px;
+    margin:10px;
   }
   .bullet-active {
     background: $rare;
@@ -42,7 +42,7 @@
 
 @media (width <= 762px) {
   .swiper {
-    margin-top: 2rem;
+    margin-top: $stdm;
     width: 90vw;
   }
 }

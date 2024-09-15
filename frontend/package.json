@@ -21,12 +21,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "lint": "eslint src/**/*.{js,jsx}",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
     ]
   },
   "browserslist": {
@@ -42,6 +41,10 @@
     ]
   },
   "devDependencies": {
-    "@iconify/react": "^5.0.2"
+    "@eslint/js": "^9.10.0",
+    "@iconify/react": "^5.0.2",
+    "eslint": "^9.10.0",
+    "eslint-plugin-react": "^7.36.1",
+    "globals": "^15.9.0"
   }
 }

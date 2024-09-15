@@ -2,14 +2,14 @@
 .home_about {
   width: 100%;
   .about_title {
-    margin: 1rem 2rem;
+    margin: $stdm $stdm 0px $stdm;
   }
 }
 .about_sections {
   @include Flex(center, center, row-reverse);
   .image {
     width: 40%;
-    padding: 20px;
+    padding: $stdp;
     order: 1;
     img {
       border: 2px solid white;
@@ -21,7 +21,7 @@
     width: 60%;
   }
   .aboutCardChildren {
-    margin: 2rem 0px;
+    margin: $stdm 0px;
     display: flex;
   }
 }
