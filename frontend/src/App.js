@@ -2,11 +2,14 @@ import { Header, NavLinks } from "./components/common/Header";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SideNav from "./components/common/SideNav";
 import React, { Suspense, useState } from "react";
-const Home = React.lazy(() => import("./pages/Home.js"));
 import Footer from "./components/common/Footer";
-const About = React.lazy(() => import("./pages/About"));
 import ScrollToTop from "./utils/scrollTop.js";
 import Spinner from "./components/Spinner.js";
+const About = React.lazy(() => import("./pages/About"));
+const Home = React.lazy(() => import("./pages/Home.js"));
+const ContactUs = React.lazy(() => import("./pages/ContactUs.js"));
+const Projects = React.lazy(() => import("./pages/Projects.js"));
+const Services = React.lazy(() => import("./pages/Services.js"));
 function App() {
   const [toggleNav, setToggleNav] = useState("100vw");
   return (
@@ -37,10 +40,34 @@ function App() {
               </Suspense>
             }
           />
-          <Route path="/services" element={<div>services</div>} />
-          <Route path="/projects" element={<div>projects</div>} />
-          <Route path="/contact" element={<div>contact</div>} />
-          <Route path="*" element={<div>404 not found</div>} />
+          <Route
+            path="/services"
+            element={
+              <Suspense fallback={<Spinner />}>
+                <Services />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/projects"
+            element={
+              <Suspense fallback={<Spinner />}>
+                <Projects />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <Suspense fallback={<Spinner />}>
+                <ContactUs />
+              </Suspense>
+            }
+          />
+          <Route
+            path="*"
+            element={<Suspense fallback={<Spinner />}>404 not found</Suspense>}
+          />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -1,6 +1,7 @@
 import React from "react";
 import { AboutCardHome } from "../components/AboutCards";
 import TeamCard from "../components/Team";
+import HeroCommon from "../components/common/HeroCommon";
 
 function About() {
   const teamdata = [
@@ -39,12 +40,23 @@ function About() {
   ];
   return (
     <div className="About">
+      <HeroCommon
+        data={{
+          title: "our difference",
+          heading: "RESPECT & INTEGRITY IN ALL WE DO",
+          body: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque sapiente sed quae consectetur in repellat, commodi similique perspiciatis eaque, vitae, saepe quo facilis cumque praesentium vel quidem amet provident esse?",
+          image:
+            "https://res.cloudinary.com/dbumvyukj/image/upload/v1725870937/jpmrxgxfnyv8fg9iopqc.webp",
+        }}
+      />
       <div className="home_about">
         <AboutCardHome />
         <AboutCardHome />
         <hr />
         <div>
-          <h1 className="title col-rare" style={{margin:"2rem"}}>our team</h1>
+          <h1 className="title col-rare" style={{ margin: "2rem" }}>
+            our team
+          </h1>
           <div className="TeamData">
             {teamdata.map((data) => {
               return <TeamCard data={data} key={data.id} />;

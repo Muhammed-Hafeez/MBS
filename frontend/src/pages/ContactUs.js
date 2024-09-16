@@ -1,7 +1,7 @@
-import React from "react";
-import HeroCommon from "../components/common/HeroCommon";
+import React from 'react'
+import HeroCommon from '../components/common/HeroCommon';
 
-function Services() {
+function ContactUs() {
   return (
     <div>
       <HeroCommon
@@ -17,4 +17,4 @@ function Services() {
   );
 }
 
-export default Services;
+export default ContactUs

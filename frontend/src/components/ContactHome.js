@@ -9,7 +9,7 @@ function ContactHome({ message }) {
           className="message"
           style={{ color: "red", margin: "0px 0px 1rem 0px " }}
         >
-          message
+          {message}
         </div>
       ) : (
         ""
