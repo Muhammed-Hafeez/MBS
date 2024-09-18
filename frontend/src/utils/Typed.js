@@ -7,15 +7,15 @@ function Typed(text, element) {
     let intervalId = setInterval(() => {
       if (i <= text.length - 1) {
         element.current.innerHTML += text[i];
-        console.log(text[i], text);
         i++;
       } else {
         clearTimeout(intervalId);
       }
-    }, 100);
+    }, 50);
 
     return () => clearTimeout(intervalId);
-  }, [text]);
+    // eslint-disable-next-line
+  }, [element]);
 }
 
 export default Typed;

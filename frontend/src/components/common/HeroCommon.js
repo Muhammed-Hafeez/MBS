@@ -11,7 +11,7 @@ function HeroCommon({ data }) {
     >
       <div className="hero-info">
         <h1 className="title col-rare">{data.title}</h1>
-        <h2 className="heading" ref={headingElement}></h2>
+        <h2 className="heading" ref={headingElement}>{""}</h2>
         <p>{data.body}</p>
       </div>
     </div>

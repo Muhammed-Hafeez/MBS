@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.jpeg";
 import PropTypes from "prop-types";
+import { Icon } from "@iconify/react";
 function NavLinks({ navlinkClasses = "", setToggleNav = null }) {
   function toggleNavigation() {
     if (setToggleNav != null) {
@@ -76,12 +77,14 @@ function Header({ setToggleNav }) {
         >
           contact us
         </NavLink>
-        <div
-          className="hamburger-menu"
+        <Icon
+          icon={"mdi:hamburger-menu"}
           onClick={() => {
             setToggleNav("0px");
           }}
-        ></div>
+          style={{ margin: "0px 2rem", width: "30px", height: "30px" }}
+          className={"col-rare hamburger-menu"}
+        />
       </nav>
     </header>
   );

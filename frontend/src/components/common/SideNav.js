@@ -1,26 +1,30 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
+import { Icon } from "@iconify/react";
 function SideNav({ children, toggleNav, setToggleNav }) {
   return (
-      <nav className="sidenav" style={{ right: toggleNav }}>
-        <div
-          className={`close closeicon`}
-          onClick={() => {
-            setToggleNav("100vw");
-          }}
-        ></div>
-        {children}
-        <NavLink
-          to="/contact"
-          className={({ isActive }) =>
-            isActive ? "btn btn-sidenav btn-active" : "btn btn-sidenav"
-          }
-        onClick={() => { setToggleNav("100vw") }}
-        >
-          contact us
-        </NavLink>
-      </nav>
+    <nav className="sidenav" style={{ right: toggleNav }}>
+      <Icon
+        icon={"uil:cancel"}
+        className={`close closeicon`}
+        onClick={() => {
+          setToggleNav("100vw");
+        }}
+      ></Icon>
+      {children}
+      <NavLink
+        to="/contact"
+        className={({ isActive }) =>
+          isActive ? "btn btn-sidenav btn-active" : "btn btn-sidenav"
+        }
+        onClick={() => {
+          setToggleNav("100vw");
+        }}
+      >
+        contact us
+      </NavLink>
+    </nav>
   );
 }
 SideNav.propTypes = {
