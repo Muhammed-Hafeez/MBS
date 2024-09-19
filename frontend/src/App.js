@@ -5,6 +5,8 @@ import React, { Suspense, useState } from "react";
 import Footer from "./components/common/Footer";
 import ScrollToTop from "./utils/scrollTop.js";
 import Spinner from "./components/Spinner.js";
+import NotFoundPage from "./pages/NotFound.js";
+const Project = React.lazy(() => import("./pages/Project.js"));
 const About = React.lazy(() => import("./pages/About"));
 const Home = React.lazy(() => import("./pages/Home.js"));
 const ContactUs = React.lazy(() => import("./pages/ContactUs.js"));
@@ -65,9 +67,14 @@ function App() {
             }
           />
           <Route
-            path="*"
-            element={<Suspense fallback={<Spinner />}>404 not found</Suspense>}
+            path="/project"
+            element={
+              <Suspense fallback={<Spinner />}>
+                <Project />
+              </Suspense>
+            }
           />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>

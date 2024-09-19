@@ -6,7 +6,7 @@ function SideNav({ children, toggleNav, setToggleNav }) {
   return (
     <nav className="sidenav" style={{ right: toggleNav }}>
       <Icon
-        icon={"uil:cancel"}
+        icon={"iconoir:cancel"}
         className={`close closeicon`}
         onClick={() => {
           setToggleNav("100vw");

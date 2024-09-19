@@ -1,12 +1,11 @@
 //sevices
 .service-container {
   margin: $stdm;
-  .title{
+  .title {
     margin-bottom: $stdm - 1rem;
   }
   .services {
     @include Flex();
-
     .service_card {
       @include Flex(center, center, column);
       border: 2px solid white;
@@ -39,50 +38,11 @@
   }
 }
 
-.projects_container {
-  margin-top: $stdm;
-  background: $secondary;
-  color: black;
-  padding: $stdp 0px;
 
-  .title {
-    color: $sec-rare;
-  }
-  .title,
-  .gallery-box {
-    margin: 0px $stdm;
-  }
-  .gallery-box {
-    padding: $stdp 0px 0px 0px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    gap: 5px;
-
-    .gallery-item {
-      width: 100%;
-      border-collapse: collapse;
-      box-sizing: border-box;
-      overflow: hidden;
-      position: relative;
-      color: white;
-      img {
-        width: 100%;
-        transition: filter 0.8s ease-out;
-      }
-    }
-    .gallery-item:hover,
-    .gallery-item:active {
-      img {
-        cursor: pointer;
-        filter: brightness(60%);
-      }
-    }
-  }
-}
 //respnsiveness
 @media (width <= 700px) {
-  .service-container{
-    margin:$stdm 1rem;
+  .service-container {
+    margin: $stdm 1rem;
   }
   .services {
     flex-direction: column !important;
@@ -90,7 +50,8 @@
       margin: 1rem 0px;
     }
   }
-  .about_sections , .about_sections:nth-child(odd){
+  .about_sections,
+  .about_sections:nth-child(odd) {
     flex-direction: column-reverse;
     margin: $stdm 0px;
     .image {
@@ -102,12 +63,5 @@
     .aboutCardChildren {
       flex-wrap: wrap;
     }
-  }
-  .gallery-box {
-    grid-template-columns: minmax(90vw, 1fr) !important;
-    margin: 0px 10px !important;
-  }
-  .gallery-item {
-    justify-self: center;
   }
 }

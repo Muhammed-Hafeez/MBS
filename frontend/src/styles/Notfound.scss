@@ -1,0 +1,78 @@
+$bg: #000000;
+$rare: #ffd700;
+
+.not-found-page {
+  background-color: $bg;
+  color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 2rem;
+
+  h1 {
+    font-size: 6rem;
+    margin: 0;
+    color: $rare;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-top: 0.5rem;
+  }
+
+  a {
+    margin-top: 2rem;
+    background-color: $rare;
+    color: $bg;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($rare, 10%);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    margin: 0 1rem;
+
+    h1 {
+      font-size: 4rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    margin: 0 0.5rem;
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+}

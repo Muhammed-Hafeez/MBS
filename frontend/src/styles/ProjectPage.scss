@@ -1,0 +1,98 @@
+$bg: #000000;
+$rare: #ffd700;
+
+.project-page {
+  background-color: $bg;
+  color: white;
+  margin: 0 2rem;
+  padding: 2rem 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .project-header {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h1 {
+      color: $rare;
+      margin: 0;
+    }
+
+    p {
+      color: white;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      max-width: 800px;
+    }
+  }
+
+  .project-details {
+    background-color: #1a1a1a;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .image-section {
+      width: 100%;
+      height: 400px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+    }
+
+    .info-section {
+      text-align: center;
+
+      h2 {
+        font-size: 2rem;
+        color: $rare;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 1rem;
+        color: #ccc;
+        margin-bottom: 1.5rem;
+      }
+
+      a {
+        background-color: $rare;
+        color: $bg;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: darken($rare, 10%);
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    margin: 0 1rem;
+
+    .project-details {
+      padding: 1.5rem;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    margin: 0 0.5rem;
+
+    .project-header h1 {
+      font-size: 2.5rem;
+    }
+  }
+}

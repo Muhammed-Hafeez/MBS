@@ -1,5 +1,4 @@
 @import "./definations.scss";
-@import "./icons.scss";
 @import "./components/Header.scss";
 @import "./components/SideNav.scss";
 @import "./components/swiper.scss";
@@ -10,4 +9,36 @@
 @import "./components/Footer.scss";
 @import "./components/spinner.scss";
 @import "./components/TeamCard.scss";
-@import "./components/HeroCommon.scss"
+@import "./components/HeroCommon.scss";
+@import "./components/projectCard.scss";
+@import "./ProjectPage.scss"; 
+@import "./Notfound.scss";
+//home page
+.OurLocation {
+  @include Flex(start, start, row);
+  background: rgb(0, 0, 0);
+  margin: 2rem;
+  iframe {
+    width: 600px;
+    height: 500px;
+  }
+  ul li {
+    @include Flex(center, start, row);
+    margin: 10px 0px;
+  }
+}
+@media (width <= 800px) {
+  .OurLocation {
+    @include Flex(center, center, column-reverse);
+    iframe {
+      width: 100%;
+      height: 400px;
+      margin-top: 2rem;
+    }
+  }
+}
+.serviceGrid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  width: fit-content;
+}

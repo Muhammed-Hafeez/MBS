@@ -1,5 +1,6 @@
 import React from 'react'
 import HeroCommon from '../components/common/HeroCommon';
+import ProjectCards from '../components/ProjectCard';
 
 function Projects() {
   return (
@@ -13,6 +14,7 @@ function Projects() {
             "https://res.cloudinary.com/dbumvyukj/image/upload/v1725870937/jpmrxgxfnyv8fg9iopqc.webp",
         }}
       />
+      <ProjectCards/>
     </div>
   );
 }

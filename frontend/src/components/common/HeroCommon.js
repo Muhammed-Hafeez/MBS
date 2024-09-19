@@ -1,9 +1,6 @@
-import React, { useRef } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import Typed from "../../utils/Typed";
 function HeroCommon({ data }) {
-  const headingElement = useRef(null);
-  Typed(data.heading, headingElement);
   return (
     <div
       className="HeroCommon"
@@ -11,7 +8,7 @@ function HeroCommon({ data }) {
     >
       <div className="hero-info">
         <h1 className="title col-rare">{data.title}</h1>
-        <h2 className="heading" ref={headingElement}>{""}</h2>
+        <h2 className="heading">{data.heading}</h2>
         <p>{data.body}</p>
       </div>
     </div>
