@@ -1,0 +1,16 @@
+[
+    {
+        "image": "https://res.cloudinary.com/dbumvyukj/image/upload/v1725870937/jpmrxgxfnyv8fg9iopqc.webp",
+        "alt": "swiper_image",
+        "id": 1
+    },
+    {
+        "image": "https://res.cloudinary.com/dbumvyukj/image/upload/v1725870934/ai1jpwgrbqs1hsxtdlk2.webp",
+        "alt": "swiper_image",
+        "id": 2
+    },{
+        "image": "https://res.cloudinary.com/dbumvyukj/image/upload/v1725870939/jqexfekpcd0shfe00mh7.webp",
+        "alt": "swiper_image",
+        "id": 3
+    }
+]

@@ -1,0 +1,20 @@
+[
+    {
+        "src": "https://img.freepik.com/free-photo/building-construction-worker-site_23-2149124283.jpg",
+        "alt": "worker image",
+        "name": "bot",
+        "id": 1
+    },
+    {
+        "src": "https://img.freepik.com/free-photo/building-construction-worker-site_23-2149124283.jpg",
+        "alt": "worker image",
+        "name": "bot",
+        "id": 2
+    },
+    {
+        "src": "https://img.freepik.com/free-photo/building-construction-worker-site_23-2149124283.jpg",
+        "alt": "worker image",
+        "name": "bot",        
+        "id": 3
+    }
+]

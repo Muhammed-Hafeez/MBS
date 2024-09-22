@@ -13,6 +13,7 @@
 @import "./components/projectCard.scss";
 @import "./ProjectPage.scss"; 
 @import "./Notfound.scss";
+@import "../Dashboard/styles/index.scss";
 //home page
 .OurLocation {
   @include Flex(start, start, row);

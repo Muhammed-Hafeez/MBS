@@ -1,0 +1,27 @@
+.Login {
+    height: 100vh;
+    width: 100vw;
+    @include Flex(center, center , column);
+  .LoginForm {
+    @include Flex(start, start, column);
+    width: fit-content;
+    margin: $stdm 0px;
+    input {
+      padding: 0.6rem;
+      width: 24rem;
+      margin: 0.8rem 0px;
+      outline: none;
+      font-size: larger;
+      background: #000;
+      border: 1px solid rgb(255, 255, 255);
+      color: white;
+    }
+  }
+}
+
+@media (width <= 450px) {
+    .Login .LoginForm input{
+        font-size: medium;
+        width: 18rem;
+    }
+}

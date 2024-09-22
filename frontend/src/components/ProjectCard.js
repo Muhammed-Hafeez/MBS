@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import projects from "../data/projects.json"
 const ProjectCard = ({ image, title, description, link }) => {
   return (
     <div className="project-card">
@@ -22,23 +23,7 @@ const ProjectCard = ({ image, title, description, link }) => {
 };
 
 const ProjectCards = () => {
-  const projects = [
-    {
-      image:
-        "https://res.cloudinary.com/dbumvyukj/image/upload/v1725870936/bakkvwxk3iva8xvooprf.webp",
-      title: "Project 1",
-      description: "This is a description for project 1.",
-      link: "/project",
-    },
-    {
-      image:
-        "https://res.cloudinary.com/dbumvyukj/image/upload/v1725870936/bakkvwxk3iva8xvooprf.webp",
-      title: "Project 2",
-      description: "This is a description for project 2.",
-      link: "/project",
-    },
-    // Add more projects as needed
-  ];
+  
 
   return (
     <div className="project-cards">
@@ -48,7 +33,7 @@ const ProjectCards = () => {
           image={project.image}
           title={project.title}
           description={project.description}
-          link={project.link}
+          link={`/project/${project.id}`}
         />
       ))}
     </div>

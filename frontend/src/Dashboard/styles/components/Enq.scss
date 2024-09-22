@@ -1,0 +1,41 @@
+.Enq {
+  padding: $stdp;
+}
+.EnqCard {
+  color: black;
+  padding: $stdp;
+  @include Flex(start, space-between, row);
+  background: $rare;
+  width: 70%;
+  border-radius: 12px;
+  margin: $stdm 0px;
+  .icon-div {
+    align-self: flex-end;
+    .icon {
+      cursor: pointer;
+      margin: 0px 1rem;
+    }
+    .icon:hover{
+      color: gray;
+    }
+  }
+  li {
+    margin-bottom: 16px;
+  }
+  a {
+    color: black;
+  }
+}
+@media (width <= 600px) {
+  .Enq {
+    padding: 1rem;
+    .EnqCard {
+      font-size: 14px;
+      padding: 12px;
+      width: 100%;
+      .icon{
+        margin: 0px 0.5rem ;
+      }
+    }
+  }
+}

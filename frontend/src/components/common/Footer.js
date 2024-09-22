@@ -1,38 +1,18 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Icon } from "@iconify/react";
+import websiteData from "../../data/webdata.json";
 const Footer = () => {
   const data = {
-    aboutinfo:
-      "In addition to our demolition expertise, we are committed to sustainable practices, recycling materials and minimizing environmental impact in every project we undertake.",
-    address:
-      "Opposite of Ramdev medical 29th main road BTM lake road BTM 1st stage Bangalore",
-    email: "mbsdemolition@gmail.com",
-    phoneno: "9341449858",
-    businessHours: "Mon-Sun 11am-8pm",
-    socialMedia: [
-      {
-        mediaIcon: "ic:twotone-facebook",
-        mediaLink: "/",
-        decription: "this is social media link",
-      },
-      {
-        mediaIcon: "ic:twotone-whatsapp",
-        mediaLink: "/",
-        decription: "this is social media link",
-      },
-      {
-        mediaIcon: "ri:youtube-fill",
-        mediaLink: "/",
-        decription: "this is social media link",
-      },
-      {
-        mediaIcon: "mdi:instagram",
-        mediaLink: "/",
-        decription: "this is social media link",
-      },
-    ],
+    aboutinfo: websiteData.smallDescription,
+    address: websiteData.addressInWords,
+    email: websiteData.email,
+    phoneno: websiteData.phoneNo,
+    businessHours: websiteData.timings,
+    socialMedia: websiteData.socialMedia
   };
+  console.log(websiteData.socialMedia);
+  
   return (
     <footer className="footer">
       <div className="container">
@@ -40,9 +20,10 @@ const Footer = () => {
           <p>Follow us</p>
           <ul className="social-icons">
             {data.socialMedia.map((m) => {
+              console.log(m);
               return (
-                <li key={m.mediaIcon}>
-                  <a href={m.mediaLink} aria-label={m.decription}>
+                <li key={m.mediaLink}>
+                  <a href={m.mediaLink} aria-label={m.description}>
                     <Icon icon={m.mediaIcon}></Icon>
                   </a>
                 </li>

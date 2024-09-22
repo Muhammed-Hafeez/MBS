@@ -3,7 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
-const CustomSwiper = () => {
+import swiperData from "../data/SwiperData.json"
+const CustomSwiper = ({data}) => {
   return (
     <div className="swiper-container">
       <Swiper
@@ -24,24 +25,13 @@ const CustomSwiper = () => {
           disableOnInteraction: false,
         }}
       >
-        <SwiperSlide className="slide">
-          <img
-            src="https://res.cloudinary.com/dbumvyukj/image/upload/v1725870937/jpmrxgxfnyv8fg9iopqc.webp"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide className="slide">
-          <img
-            src="https://res.cloudinary.com/dbumvyukj/image/upload/v1725870934/ai1jpwgrbqs1hsxtdlk2.webp"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide className="slide">
-          <img
-            src="https://res.cloudinary.com/dbumvyukj/image/upload/v1725870939/jqexfekpcd0shfe00mh7.webp"
-            alt=""
-          />
-        </SwiperSlide>
+        {swiperData.map((data) => {
+          return (
+            <SwiperSlide key={data.id} className="slide">
+              <img src={data.image} alt={data.alt} />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
       <div className="swiper-pagination"></div>
     </div>

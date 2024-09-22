@@ -1,0 +1,16 @@
+@import "./components/login.scss";
+@import "./components/header.scss";
+@import "./components/Enq.scss";
+@import "./components/CMS.scss";
+@import "./components/Analytics.scss";
+
+.Dashboard {
+  @include Flex(start, start, row);
+  min-height: 100vh;
+
+  main {
+    height: 100vh;
+    overflow-y: scroll;
+    width: 100%;
+  }
+}

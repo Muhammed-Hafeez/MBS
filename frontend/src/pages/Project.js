@@ -1,5 +1,6 @@
 import React from "react";
-
+import projectData from "../data/projects.json";
+import { useParams } from "react-router-dom";
 const ProjectPage = ({ project }) => {
   return (
     <div className="project-page">
@@ -22,16 +23,9 @@ const ProjectPage = ({ project }) => {
   );
 };
 
-const project = {
-  title: "Amazing Project",
-  description:
-    "This is an amazing project that demonstrates elegant design and functionality.",
-  details:
-    "This project uses SCSS and React to create a highly responsive and animated project card layout. It follows best practices in modern web development.",
-  image:
-    "https://res.cloudinary.com/dbumvyukj/image/upload/v1725870936/bakkvwxk3iva8xvooprf.webp",
-};
-
 export default function Project() {
+  const params = useParams();
+  const id = params.id;
+  const project = projectData.find((obj) => obj.id === Number(id));
   return <ProjectPage project={project} />;
 }
