@@ -2,4 +2,11 @@
   padding: $stdp;
 }
 
- 
+.line-chart-container {
+  @include Flex();
+  margin-top: 2rem;
+}
+.periods {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
