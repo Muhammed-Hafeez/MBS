@@ -16,7 +16,7 @@ exports.addTeamMember = captureErr(async (req, res, next) => {
   const { src, alt, name } = req.body;
   const resulterr = validationResult(req);
   if (!resulterr.isEmpty()) {
-    res.status(400).json({ success: false, message: resulterr.array() });
+    res.status(400).json({ success: false, message: resulterr.array()[0].msg});
     return;
   }
   // Generate a unique id for the new team member
@@ -51,7 +51,7 @@ exports.patchTeamMember = captureErr(async (req, res, next) => {
   const { src, alt, name } = req.body;
   const resulterr = validationResult(req);
   if (!resulterr.isEmpty()) {
-    res.status(400).json({ success: false, message: resulterr.array() });
+    res.status(400).json({ success: false, message: resulterr.array()[0].msg});
     return;
   }
   // Find and update the specific team member in the teamdata array

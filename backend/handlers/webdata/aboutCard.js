@@ -1,5 +1,7 @@
 const { captureErr } = require("../../error/CatchAsyncErr");
 const WebData = require("../../models/CMS");
+const { validationResult } = require("express-validator");
+
 
 const getAboutCard = captureErr(async (req, res, next) => {
   const data = await WebData.findOne({}, { aboutcarddata: 1 });
@@ -8,7 +10,12 @@ const getAboutCard = captureErr(async (req, res, next) => {
 
 const createAboutCard = captureErr(async (req, res, next) => {
   const { image, title, description } = req.body;
-  const data = await WebData.updateOne(
+  const result = validationResult(req);
+  if (!result.isEmpty()) {
+    res.status(400).json({ success: false, message: result.array()[0].msg });
+    return;
+  }
+  await WebData.updateOne(
     {},
     { $push: { aboutcarddata: { image, title, description } } }
   );
@@ -18,6 +25,11 @@ const createAboutCard = captureErr(async (req, res, next) => {
 const patchAboutCard = captureErr(async (req, res, next) => {
   const { image, title, description } = req.body;
   const paramsId = req.params.id;
+  const result = validationResult(req);
+  if (!result.isEmpty()) {
+    res.status(400).json({ success: false, message: result.array()[0].msg });
+    return;
+  }
   const data = await WebData.updateOne(
     { "aboutcarddata.id": paramsId }, // Match the specific object in the array
     {

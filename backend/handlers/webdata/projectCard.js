@@ -16,7 +16,7 @@ exports.createProjectCard = captureErr(async (req, res, next) => {
   const { image, title, description, details } = req.body;
   const result = validationResult(req);
   if (!result.isEmpty()) {
-    res.status(400).json({ success: false, message: result.array() });
+    res.status(400).json({ success: false, message: result.array()[0].msg});
     return;
   }
   await WebData.updateOne(
@@ -34,7 +34,7 @@ exports.patchProjectCard = captureErr(async (req, res, next) => {
   const { image, title, description, details } = req.body;
   const result = validationResult(req);
   if (!result.isEmpty()) {
-    res.status(400).json({ success: false, message: result.array() });
+    res.status(400).json({ success: false, message: result.array()[0].msg});
     return;
   }
   const data = await WebData.updateOne(

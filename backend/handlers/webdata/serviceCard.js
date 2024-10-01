@@ -16,7 +16,9 @@ const getServiceCard = captureErr(async (req, res, next) => {
 const createServiceCard = captureErr(async (req, res, next) => {
   const validationresult = validationResult(req);
   if (!validationresult.isEmpty()) {
-    res.status(400).json({ success: false, message: validationresult.array()});
+    res
+      .status(400)
+      .json({ success: false, message: validationresult.array()[0].msg });
     return;
   }
   const { heading, body, icon, Home } = req.body;
@@ -44,7 +46,11 @@ const createServiceCard = captureErr(async (req, res, next) => {
 const patchServiceCard = captureErr(async (req, res, next) => {
   const { heading, body, icon, Home } = req.body;
   const paramsId = req.params.id;
-  console.log(paramsId);
+  const result = validationResult(req);
+  if (!result.isEmpty()) {
+    res.status(400).json({ success: false, message: result.array()[0].msg });
+    return;
+  }
   const data = await WebData.updateOne(
     { "servicecarddata.id": paramsId }, // Match the specific object in the array
     {

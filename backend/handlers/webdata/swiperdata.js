@@ -24,7 +24,7 @@ exports.addSwiperImage = captureErr(async (req, res, next) => {
   const { image, alt } = req.body;
   const validationresult = validationResult(req);
   if (!validationresult.isEmpty()) {
-    res.status(400).json({ success: false, message: validationresult.array() });
+    res.status(400).json({ success: false, message: validationresult.array()[0].msg});
     return;
   }
   // Generate a unique id for the new swiper image
