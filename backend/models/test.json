@@ -1,0 +1,124 @@
+{
+    "webdata": {
+        "smallDescription": "In addition to our demolition expertise, we are committed to sustainable practices, recycling materials and minimizing environmental impact in every project we undertake.",
+        "addressInWords": "Opposite of Ramdev medical 29th main road BTM lake road BTM 1st stage Bangalore",
+        "addressForMaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.7830415122553!2d77.60022917380935!3d12.921661415973782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae150095ff2ea9%3A0xef7799b4e82a6fa2!2s54%2C%208th%20Main%20Rd%2C%20New%20Gurappana%20Palya%2C%201st%20Stage%2C%20BTM%20Layout%2C%20Bengaluru%2C%20Karnataka%20560029%2C%20India!5e0!3m2!1sen!2sus!4v1726760949208!5m2!1sen!2sus",
+        "addreaaForLink": "https://maps.app.goo.gl/9CVaHLvS1Ws3ohfX9",
+        "email": "mbsdemolition@gmail.com",
+        "phoneNo": "9341449858",
+        "timings": "Mon-Sun 11am-8pm",
+        "socialMedia": [
+            {
+                "mediaIcon": "ic:twotone-whatsapp",
+                "mediaLink": "https://wa.me/9341449858",
+                "decription": "this is social media link"
+            }
+        ]
+    },
+    "teamdata": [
+        {
+            "src": "https://img.freepik.com/free-photo/building-construction-worker-site_23-2149124283.jpg",
+            "alt": "worker image",
+            "name": "bot",
+            "id": 1
+        },
+        {
+            "src": "https://img.freepik.com/free-photo/building-construction-worker-site_23-2149124283.jpg",
+            "alt": "worker image",
+            "name": "bot",
+            "id": 2
+        },
+        {
+            "src": "https://img.freepik.com/free-photo/building-construction-worker-site_23-2149124283.jpg",
+            "alt": "worker image",
+            "name": "bot",
+            "id": 3
+        }
+    ],
+    "swiperdata": [
+        {
+            "image": "https://res.cloudinary.com/dbumvyukj/image/upload/v1725870937/jpmrxgxfnyv8fg9iopqc.webp",
+            "alt": "swiper_image",
+            "id": 1
+        },
+        {
+            "image": "https://res.cloudinary.com/dbumvyukj/image/upload/v1725870934/ai1jpwgrbqs1hsxtdlk2.webp",
+            "alt": "swiper_image",
+            "id": 2
+        },
+        {
+            "image": "https://res.cloudinary.com/dbumvyukj/image/upload/v1725870939/jqexfekpcd0shfe00mh7.webp",
+            "alt": "swiper_image",
+            "id": 3
+        }
+    ],
+    "servicecarddata": [
+        {
+            "heading": "this is heading",
+            "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt amet rem, iste eos magni debitis! Consectetur magni quam vero nihil minus, veniam aut, quibusdam, fugit iusto voluptatum corporis iste atque. ",
+            "Home": true,
+            "id": 1
+        },
+        {
+            "heading": "this is heading",
+            "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt amet rem, iste eos magni debitis! Consectetur magni quam vero nihil minus, veniam aut, quibusdam, fugit iusto voluptatum corporis iste atque. ",
+            "Home": true,
+            "icon": "mdi:saw-blade",
+            "id": 2
+        }
+    ],
+    "projectsdata": [
+        [
+            {
+                "image": "https://res.cloudinary.com/dbumvyukj/image/upload/v1725870936/bakkvwxk3iva8xvooprf.webp",
+                "title": "Project 1",
+                "description": "This is a description for project 1.",
+                "details": "this is project details",
+                "id": 1
+            },
+            {
+                "image": "https://res.cloudinary.com/dbumvyukj/image/upload/v1725870936/bakkvwxk3iva8xvooprf.webp",
+                "title": "Project 2",
+                "description": "This is a description for project 2.",
+                "details": "this is project details",
+                "id": 2
+            }
+        ]
+    ],
+    "herodata":{
+        "About": {
+            "title": "our difference",
+            "heading": "RESPECT & INTEGRITY IN ALL WE DO",
+            "body": " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque sapiente sed quae consectetur in repellat, commodi similique perspiciatis eaque, vitae, saepe quo facilis cumque praesentium vel quidem amet provident esse?",
+            "image": "https://res.cloudinary.com/dbumvyukj/image/upload/v1725870937/jpmrxgxfnyv8fg9iopqc.webp"
+        },
+        "services": {
+            "title": "our difference",
+            "heading": "RESPECT & INTEGRITY IN ALL WE DO",
+            "body": " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque sapiente sed quae consectetur in repellat, commodi similique perspiciatis eaque, vitae, saepe quo facilis cumque praesentium vel quidem amet provident esse?",
+            "image": "https://res.cloudinary.com/dbumvyukj/image/upload/v1725870937/jpmrxgxfnyv8fg9iopqc.webp"
+        },
+        "projects": {
+            "title": "our difference",
+            "heading": "RESPECT & INTEGRITY IN ALL WE DO",
+            "body": " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque sapiente sed quae consectetur in repellat, commodi similique perspiciatis eaque, vitae, saepe quo facilis cumque praesentium vel quidem amet provident esse?",
+            "image": "https://res.cloudinary.com/dbumvyukj/image/upload/v1725870937/jpmrxgxfnyv8fg9iopqc.webp"
+        }
+    },
+    "aboutcarddata":[
+        {
+            "image": "https://res.cloudinary.com/dbumvyukj/image/upload/v1725870938/e2xz0jpgafrczc0es0f9.webp",
+            "title": "Experienced Demolition Experts",
+            "description": "With over 20 years of experience, we have successfully completed numerous demolition projects, earning a reputation for excellence and reliability in the industry",
+            "id": 1
+        },
+        {
+            "image": "https://res.cloudinary.com/dbumvyukj/image/upload/v1725870938/e2xz0jpgafrczc0es0f9.webp",
+            "title": "Experienced Demolition Experts",
+            "description": "With over 20 years of experience, we have successfully completed numerous demolition projects, earning a reputation for excellence and reliability in the industry",
+            "id": 2
+        }
+    ]
+
+}
+

@@ -1,0 +1,62 @@
+{
+    "users": [
+        {
+            "month": "1/5/2012",
+            "users": "10234",
+            "leads": "234"
+        },
+        {
+            "month": "2/10/2012",
+            "users": "23456",
+            "leads": "8763"
+        },
+        {
+            "month": "3/15/2012",
+            "users": "3421",
+            "leads": "9871"
+        },
+        {
+            "month": "4/20/2012",
+            "users": "56789",
+            "leads": "1324"
+        },
+        {
+            "month": "5/25/2012",
+            "users": "8765",
+            "leads": "746"
+        },
+        {
+            "month": "6/30/2012",
+            "users": "7890",
+            "leads": "623"
+        },
+        {
+            "month": "7/5/2012",
+            "users": "9123",
+            "leads": "8123"
+        },
+        {
+            "month": "8/10/2012",
+            "users": "54321",
+            "leads": "7645"
+        }
+    ],
+    "leads": [
+        {
+            "firstName": "hafeez",
+            "lastName": "ulla",
+            "email": "someemail@gmail.com",
+            "message": "a long message",
+            "phoneNo": 1234567890,
+            "id": "mongoose object id here"
+        },
+        {
+            "firstName": "hafeez",
+            "lastName": "ulla",
+            "email": "someemail@gmail.com",
+            "message": "a long message",
+            "phoneNo": 1234567890,
+            "id": "mongoose object id here"
+        }
+    ]
+}
