@@ -2,10 +2,7 @@ const mongoose = require("mongoose");
 
 // Define the schema for users
 const userSchema = new mongoose.Schema({
-  month: {
-    type: String,
-    required: true,
-  },
+  month: { type: Date, default: Date.now },
   users: {
     type: Number,
     required: true,
@@ -43,7 +40,7 @@ const leadSchema = new mongoose.Schema({
   },
   id: {
     type: mongoose.Schema.Types.ObjectId,
-    required: true,
+    default: new mongoose.Types.ObjectId(),
   },
 });
 
@@ -54,6 +51,4 @@ const analyticsSchema = new mongoose.Schema({
 });
 
 // Create the model
-const Analytics = mongoose.model("Analytics", analyticsSchema);
-
-module.exports = Analytics;
+module.exports = mongoose.model("analytics", analyticsSchema);
