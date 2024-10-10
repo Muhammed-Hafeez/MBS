@@ -5,11 +5,6 @@ const authorize = require("../middleware/verify");
 const authRouter = express.Router();
 
 authRouter.route("/login").post(login);
-authRouter.post("/logout", logout);
-
-//for testing purposes 
-// authRouter.get("/protected", authorize, (req, res) => {
-//   res.json({ success: true, message: "you are logged in" });
-// });
+authRouter.post("/logout", authorize, logout);
 
 module.exports = { authRouter };

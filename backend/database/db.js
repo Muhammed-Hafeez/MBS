@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
-// mongodb+srv://hafeez97418:p1u2b3g4Mongo@myfirstcluster.rus7nnu.mongodb.net/?retryWrites=true&w=majority&appName=MyFirstCluster
 const uri =
-  "mongodb://127.0.0.1:27017/MBS";
+  process.env.MODE === "development"
+    ? "mongodb://127.0.0.1:27017/MBS"
+    : process.env.DATABASE_URI;
 const clientOptions = {
   serverApi: { version: "1", strict: true, deprecationErrors: true },
 };
@@ -15,4 +16,5 @@ const connectDatabase = async () => {
     process.exit(1);
   }
 };
+
 module.exports = connectDatabase;

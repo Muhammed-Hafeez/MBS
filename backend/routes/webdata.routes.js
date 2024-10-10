@@ -41,65 +41,68 @@ const {
 } = require("../validation/validation");
 const { getWebData, patchWebData } = require("../handlers/webdata/webData");
 
+//authorization middleware
+const authorize = require("../middleware/verify");
+
 const cmsRouter = express.Router();
 
 //about card routes
 cmsRouter
   .route("/aboutcard")
   .get(getAboutCard)
-  .post(AboutCardValidation, createAboutCard);
+  .post(authorize, AboutCardValidation, createAboutCard);
 cmsRouter
   .route("/aboutcard/:id")
-  .patch(AboutCardValidation, patchAboutCard)
-  .delete(deleteAboutCard);
+  .patch(authorize, AboutCardValidation, patchAboutCard)
+  .delete(authorize, deleteAboutCard);
 
 //service card routes
 cmsRouter
   .route("/servicecard")
   .get(getServiceCard)
-  .post(serviceCardDataValidation, createServiceCard);
+  .post(authorize, serviceCardDataValidation, createServiceCard);
 cmsRouter
   .route("/servicecard/:id")
-  .patch(serviceCardDataValidation, patchServiceCard)
-  .delete(deleteServiceCard);
+  .patch(authorize, serviceCardDataValidation, patchServiceCard)
+  .delete(authorize, deleteServiceCard);
 
 //project card
 cmsRouter
   .route("/projectcard")
   .get(getProjectCard)
-  .post(ProjectCardValidation, createProjectCard);
+  .post(authorize, ProjectCardValidation, createProjectCard);
 cmsRouter
   .route("/projectcard/:id")
-  .patch(ProjectCardValidation, patchProjectCard)
-  .delete(deleteProjectCard);
+  .patch(authorize, ProjectCardValidation, patchProjectCard)
+  .delete(authorize, deleteProjectCard);
 //teamdata
 cmsRouter
   .route("/team")
   .get(getTeamMember)
-  .post(TeamDataValiadtion, addTeamMember);
+  .post(authorize, TeamDataValiadtion, addTeamMember);
 cmsRouter
   .route("/team/:id")
-  .patch(TeamDataValiadtion, patchTeamMember)
-  .delete(deleteTeamMember);
+  .patch(authorize, TeamDataValiadtion, patchTeamMember)
+  .delete(authorize, deleteTeamMember);
 //swiper
 cmsRouter
   .route("/swiper")
-  .post(swiperDataValidation, addSwiperImage)
+  .post(authorize, swiperDataValidation, addSwiperImage)
   .get(getSwiperImages);
 cmsRouter
   .route("/swiper/:id")
-  .patch(swiperDataValidation, patchSwiperImage)
-  .delete(deleteSwiperImage);
+  .patch(authorize, swiperDataValidation, patchSwiperImage)
+  .delete(authorize, deleteSwiperImage);
 
 //herodata
 cmsRouter
   .route("/herodata")
   .get(getHeroData)
-  .patch(heroDataValidation, patchHeroData);
+  .patch(authorize, heroDataValidation, patchHeroData);
 //webdata
 
 cmsRouter
   .route("/webdata")
   .get(getWebData)
-  .patch(webDataValidation, patchWebData);
+  .patch(authorize, webDataValidation, patchWebData);
 module.exports = cmsRouter;
