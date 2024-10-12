@@ -1,0 +1,40 @@
+.alert {
+  padding: 16px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 0px;
+  z-index: 10000;
+  width: 80vw;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.alert-info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.alert-warning {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: inherit;
+}

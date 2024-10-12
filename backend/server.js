@@ -19,7 +19,13 @@ const authorize = require("./middleware/verify");
 const app = express();
 
 // Serve static files from the React app build
-if (mode === "development") app.use(cors());
+if (mode === "development")
+  app.use(
+    cors({
+      origin: "http://localhost:3000",
+      credentials: true,
+    })
+  );
 app.use(express.static(path.join(__dirname, "..", "public")));
 app.use(express.json());
 app.use(cookieParser());

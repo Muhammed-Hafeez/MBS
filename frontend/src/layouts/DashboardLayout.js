@@ -15,7 +15,6 @@ const DashboardLayout = () => {
           width={"50px"}
           onClick={() => {
             setNav(nav === "-100vw" ? "0px" : "-100vw");
-            console.log(nav);
           }}
         />
         <Outlet />

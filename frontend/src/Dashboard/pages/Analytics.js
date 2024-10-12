@@ -15,7 +15,6 @@ function Analytics() {
       <Charts data={dividedArray[dataNum]} />
       <div className="periods">
         {dividedArray.map((elem, i = 0) => {
-          console.log(elem[0]);
           
           return (
             <button

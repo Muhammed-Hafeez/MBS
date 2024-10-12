@@ -1,14 +1,16 @@
 import React from "react";
 import logo from "../../assets/logo.jpeg";
-import { NavLink } from "react-router-dom";
+import { NavLink , useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
+import { logout } from "../../services/auth";
+import { useDispatch } from "react-redux";
+import { alertIsCalled } from "../../features/counter";
 
 function Header({ nav, setNav }) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   return (
-    <header
-      className="DashboardHeader"
-      style={{ left: `${nav}` }}
-    >
+    <header className="DashboardHeader" style={{ left: `${nav}` }}>
       <nav>
         <ul className="list">
           <li className="dashboard-logo">
@@ -75,7 +77,32 @@ function Header({ nav, setNav }) {
             </NavLink>
           </li>
           <li className="link">
-            <Icon icon="bx:power-off" className="icon" width={"30px"}></Icon>
+            <Icon
+              icon="bx:power-off"
+              className="icon"
+              width={"30px"}
+              onClick={async () => {
+                const result = await logout();
+                if (result.success === true) {
+                  dispatch(
+                    alertIsCalled({
+                      called: true,
+                      message: result.message,
+                      type: "success",
+                    })
+                  );
+                  return navigate("/");
+                }
+                dispatch(
+                  alertIsCalled({
+                    called: true,
+                    message: result.message,
+                    type: "error",
+                  })
+                );
+                  return navigate("/");
+              }}
+            ></Icon>
           </li>
         </ul>
       </nav>

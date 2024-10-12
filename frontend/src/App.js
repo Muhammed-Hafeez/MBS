@@ -5,6 +5,9 @@ import Spinner from "./components/Spinner.js";
 import NotFoundPage from "./pages/NotFound.js";
 import MainLayout from "./layouts/MainLayout.js";
 import DashboardLayout from "./layouts/DashboardLayout.js";
+import Alert from "./components/common/Alert.js";
+import { useSelector, useDispatch } from "react-redux";
+import { alertIsCalled } from "./features/counter.js";
 
 // Lazy load the pages to improve initial load time
 const Project = React.lazy(() => import("./pages/Project.js"));
@@ -19,11 +22,24 @@ const CMS = React.lazy(() => import("./Dashboard/pages/CMS.js"));
 const Login = React.lazy(() => import("./Dashboard/pages/Login.js"));
 
 function App() {
+  const dispatch = useDispatch();
+  const renderAlert = useSelector((state) => state.renderAlert);
   // State to manage the visibility of the side navigation
   const [toggleNav, setToggleNav] = useState("100vw");
 
+  const handleClose = () => {
+    dispatch(alertIsCalled({called:false}));
+  };
+  // dispatch(alertIsCalled(true));
   return (
     <div className="App">
+      {renderAlert.called && (
+        <Alert
+          message={renderAlert.message}
+          type={renderAlert.type} // success, error, info, warning
+          onClose={handleClose}
+        />
+      )}
       {/* BrowserRouter manages the navigation between different routes */}
       <BrowserRouter>
         <ScrollToTop />
@@ -98,7 +114,7 @@ function App() {
           <Route path="/dashboard" element={<DashboardLayout />}>
             {/* enquery page of dahboard */}
             <Route
-              path=""
+              index
               element={
                 <Suspense fallback={<Spinner />}>
                   <Enquiries />

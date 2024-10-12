@@ -11,7 +11,6 @@ const Footer = () => {
     businessHours: websiteData.timings,
     socialMedia: websiteData.socialMedia
   };
-  console.log(websiteData.socialMedia);
   
   return (
     <footer className="footer">
@@ -20,7 +19,6 @@ const Footer = () => {
           <p>Follow us</p>
           <ul className="social-icons">
             {data.socialMedia.map((m) => {
-              console.log(m);
               return (
                 <li key={m.mediaLink}>
                   <a href={m.mediaLink} aria-label={m.description}>
