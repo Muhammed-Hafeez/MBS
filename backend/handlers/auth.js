@@ -5,7 +5,7 @@ const login = captureErr((req, res, next) => {
   const isDevelopment = process.env.MODE === 'development';
   const { email, password } = req.body;
   if (
-    email !== process.env.SECRET_EMAIL &&
+    email !== process.env.SECRET_EMAIL ||
     password !== process.env.ADMIN_PASSWORD
   ) {
     res.status(401).json({ success: false, message: "Invalid credentials" });

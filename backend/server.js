@@ -1,7 +1,6 @@
 const express = require("express");
 require("dotenv").config();
 const path = require("path");
-const connectDatabase = require("./database/db");
 const cookieParser = require("cookie-parser");
 const { handleErrors } = require("./error/CatchAsyncErr");
 const cors = require("cors");
@@ -16,6 +15,7 @@ const cmsRouter = require("./routes/webdata.routes");
 const AnalyticsRouter = require("./routes/analytics.routes");
 const { trackVisit } = require("./middleware/logVisits");
 const authorize = require("./middleware/verify");
+const connectDatabase = require("./database/db");
 const app = express();
 
 // Serve static files from the React app build
@@ -56,7 +56,6 @@ app.use((req, res, next) => {
 });
 app.use(handleErrors);
 
-// Connect to database
 connectDatabase();
 
 // Graceful shutdown handlers
@@ -72,9 +71,6 @@ process.on("unhandledRejection", (reason, promise) => {
   process.exit(1);
 });
 
-if (mode === "development")
-  app.listen(PORT, () => {
-    console.log(`Server running in mode: ${mode} on http://localhost:${PORT}`);
-  });
-
-module.exports = app;
+app.listen(PORT, () => {
+  console.log(`Server running in mode: ${mode} on http://localhost:${PORT}`);
+});

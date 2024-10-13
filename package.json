@@ -6,7 +6,7 @@
   "scripts": {
     "test": "nodemon ./backend/server.js",
     "dev": "nodemon ./backend/server.js",
-    "build": "node  ./backend/server.js"
+    "build": "node ./backend/server.js"
   },
   "repository": {
     "type": "git",
