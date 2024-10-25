@@ -1,8 +1,9 @@
 const jwt = require("jsonwebtoken");
 const { captureErr } = require("../error/CatchAsyncErr");
+const isDevelopment = (process.env.MODE = "development");
 
 const login = captureErr((req, res, next) => {
-  const isDevelopment = process.env.MODE === 'development';
+  const isDevelopment = process.env.MODE === "development";
   const { email, password } = req.body;
   if (
     email !== process.env.SECRET_EMAIL ||
@@ -17,11 +18,11 @@ const login = captureErr((req, res, next) => {
     secure: process.env.MODE === "production", // Use secure cookies in production
     sameSite: isDevelopment ? "Lax" : "strict", // Helps prevent CSRF attacks
   });
-  res.json({success:true ,  message: "Logged in successfully" });
+  res.json({ success: true, message: "Logged in successfully" });
 });
 
 const logout = captureErr((req, res) => {
   res.clearCookie("auth_token");
-  res.json({ success:true , message: "Logged out successfully" });
+  res.json({ success: true, message: "Logged out successfully" });
 });
 module.exports = { login, logout };

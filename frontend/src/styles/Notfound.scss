@@ -1,7 +1,7 @@
 $bg: #000000;
 $rare: #ffd700;
 
-.not-found-page {
+.not-found-page , .unauthorize-page , .error-page {
   background-color: $bg;
   color: white;
   height: 100vh;

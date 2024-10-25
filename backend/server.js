@@ -19,14 +19,14 @@ const connectDatabase = require("./database/db");
 const app = express();
 
 // Serve static files from the React app build
-if (mode === "development")
-  app.use(
-    cors({
-      origin: "http://localhost:3000",
-      credentials: true,
-    })
-  );
-app.use(express.static(path.join(__dirname, "..", "public")));
+// if (mode === "development")
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
+app.use(express.static(path.join(__dirname, ".", "public")));
 app.use(express.json());
 app.use(cookieParser());
 
@@ -39,15 +39,15 @@ app.use("/api/cms", cmsRouter);
 app.use("/api/analytics", AnalyticsRouter);
 // Handle `/dashboard` route
 app.get("/dashboard", authorize, (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "public", "index.html"));
+  res.sendFile(path.join(__dirname, ".", "public", "index.html"));
 });
 //auth for dashboard routes
 app.get("/dashboard/*", authorize, (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "public", "index.html"));
+  res.sendFile(path.join(__dirname, ".", "public", "index.html"));
 });
 // Catch-all handler for React app
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "public", "index.html"));
+  res.sendFile(path.join(__dirname, ".", "public", "index.html"));
 });
 
 // Error handler middleware

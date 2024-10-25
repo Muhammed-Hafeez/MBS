@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React, { Suspense, useState } from "react";
 import ScrollToTop from "./utils/scrollTop.js";
 import Spinner from "./components/Spinner.js";
-import NotFoundPage from "./pages/NotFound.js";
+import {Error, NotFoundPage, Unauthorized} from "./pages/ErrorPages.js";
 import MainLayout from "./layouts/MainLayout.js";
 import DashboardLayout from "./layouts/DashboardLayout.js";
 import Alert from "./components/common/Alert.js";
@@ -148,6 +148,8 @@ function App() {
             }
           />
           {/* Catch-all route for any unmatched paths (404 Page) */}
+          <Route path="/error" element={<Error />} />
+          <Route path="/unauthorized" element={<Unauthorized />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>

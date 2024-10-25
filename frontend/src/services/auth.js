@@ -37,8 +37,10 @@ export async function logout() {
     });
 
     let data = await response.json();
+    
     return data;
   } catch (error) {
+    console.log(error);
     return {
       success: false,
       type: "error",
