@@ -1,6 +1,5 @@
-import React from 'react'
-import HeroCommon from '../components/common/HeroCommon';
-import ProjectCards from '../components/ProjectCard';
+import HeroCommon from '../components/common/HeroCommon.jsx';
+import ProjectCards from '../components/ProjectCard.jsx';
 
 function Projects() {
   return (

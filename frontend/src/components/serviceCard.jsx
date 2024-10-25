@@ -1,4 +1,3 @@
-import React from "react";
 import { Icon } from "@iconify/react";
 import PropTypes from "prop-types";
 function ServiceCard({ heading, icon, body, children }) {

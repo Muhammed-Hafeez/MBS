@@ -1,5 +1,4 @@
-import React from "react";
-import ContactHome from "../components/ContactHome";
+import ContactHome from "../components/ContactHome.jsx";
 import { Icon } from "@iconify/react";
 import Websitedata from "../data/webdata.json";
 function ContactUs() {

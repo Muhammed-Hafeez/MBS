@@ -1,25 +1,25 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React, { Suspense, useState } from "react";
 import ScrollToTop from "./utils/scrollTop.js";
-import Spinner from "./components/Spinner.js";
-import {Error, NotFoundPage, Unauthorized} from "./pages/ErrorPages.js";
-import MainLayout from "./layouts/MainLayout.js";
-import DashboardLayout from "./layouts/DashboardLayout.js";
-import Alert from "./components/common/Alert.js";
+import Spinner from "./components/Spinner.jsx";
+import {Error, NotFoundPage, Unauthorized} from "./pages/ErrorPages.jsx";
+import MainLayout from "./layouts/MainLayout.jsx";
+import DashboardLayout from "./layouts/DashboardLayout.jsx";
+import Alert from "./components/common/Alert.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import { alertIsCalled } from "./features/counter.js";
 
 // Lazy load the pages to improve initial load time
-const Project = React.lazy(() => import("./pages/Project.js"));
-const About = React.lazy(() => import("./pages/About"));
-const Home = React.lazy(() => import("./pages/Home.js"));
-const ContactUs = React.lazy(() => import("./pages/ContactUs.js"));
-const Projects = React.lazy(() => import("./pages/Projects.js"));
-const Services = React.lazy(() => import("./pages/Services.js"));
-const Enquiries = React.lazy(() => import("./Dashboard/pages/Enquiries.js"));
-const Analytics = React.lazy(() => import("./Dashboard/pages/Analytics.js"));
-const CMS = React.lazy(() => import("./Dashboard/pages/CMS.js"));
-const Login = React.lazy(() => import("./Dashboard/pages/Login.js"));
+const Project = React.lazy(() => import("./pages/Project.jsx"));
+const About = React.lazy(() => import("./pages/About.jsx"));
+const Home = React.lazy(() => import("./pages/Home.jsx"));
+const ContactUs = React.lazy(() => import("./pages/ContactUs.jsx"));
+const Projects = React.lazy(() => import("./pages/Projects.jsx"));
+const Services = React.lazy(() => import("./pages/Services.jsx"));
+const Enquiries = React.lazy(() => import("./Dashboard/pages/Enquiries.jsx"));
+const Analytics = React.lazy(() => import("./Dashboard/pages/Analytics.jsx"));
+const CMS = React.lazy(() => import("./Dashboard/pages/CMS.jsx"));
+const Login = React.lazy(() => import("./Dashboard/pages/Login.jsx"));
 
 function App() {
   const dispatch = useDispatch();

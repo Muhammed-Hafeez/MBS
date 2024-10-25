@@ -1,4 +1,3 @@
-import React from "react";
 import CustomSwiper from "./swiper";
 
 function Hero() {

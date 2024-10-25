@@ -38,10 +38,6 @@ $rare: #ffd700;
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: darken($rare, 10%);
-    }
   }
 
   @media screen and (max-width: 768px) {

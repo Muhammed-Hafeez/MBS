@@ -1,10 +1,10 @@
 import React from "react";
-import Hero from "../components/Hero.js";
-import { AboutCardHome } from "../components/AboutCards.js";
+import Hero from "../components/Hero.jsx";
+import { AboutCardHome } from "../components/AboutCards.jsx";
 import { NavLink } from "react-router-dom";
-import ServiceCard from "../components/serviceCard.js";
-import ContactHome from "../components/ContactHome.js";
-import ProjectCards from "../components/ProjectCard.js";
+import ServiceCard from "../components/serviceCard.jsx";
+import ContactHome from "../components/ContactHome.jsx";
+import ProjectCards from "../components/ProjectCard.jsx";
 import aboutCardData from "../data/aboutCard.json";
 import serviceCardData from "../data/ServiceCard.json";
 function Home() {

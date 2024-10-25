@@ -1,4 +1,3 @@
-import React from "react";
 import projectData from "../data/projects.json";
 import { useParams } from "react-router-dom";
 const ProjectPage = ({ project }) => {
