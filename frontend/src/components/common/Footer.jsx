@@ -64,6 +64,11 @@ const Footer = () => {
                   Contact Us
                 </NavLink>
               </li>
+              <li>
+                <NavLink to="/login" aria-label="login page">
+                  dashboard page for admin's only
+                </NavLink>
+              </li>
             </ul>
           </div>
 

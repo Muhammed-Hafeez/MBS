@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const { captureErr } = require("../error/CatchAsyncErr");
-const isDevelopment = (process.env.MODE = "development");
+const isDevelopment = (process.env.MODE === "development");
 
 const login = captureErr((req, res, next) => {
   const isDevelopment = process.env.MODE === "development";
@@ -25,4 +25,7 @@ const logout = captureErr((req, res) => {
   res.clearCookie("auth_token");
   res.json({ success: true, message: "Logged out successfully" });
 });
-module.exports = { login, logout };
+const isLoggedIn = captureErr((req, res) => {
+  res.json({ success: true, message: "user is LoggedIn" });
+});
+module.exports = { login, logout ,isLoggedIn};

@@ -1,10 +1,40 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
-function EnquiryCard({ data }) {
+import { deleteLead } from "../../services/analytics";
+import { useDispatch } from "react-redux";
+import { alertIsCalled } from "../../features/counter";
+function EnquiryCard({ data, dataList, setData }) {
   const [icon, setIcon] = useState("mdi:message");
+  const dispatch = useDispatch();
+  const handleOndelete = async (id) => {
+    const responce = await deleteLead(id);
+    if (!responce.success) {
+      return dispatch(
+        alertIsCalled({
+          called: true,
+          type: responce.type ? result.type : "error",
+          message: responce.message,
+        })
+      );
+    }
+    dispatch(
+      alertIsCalled({
+        called: true,
+        type: "success",
+        message: responce.message,
+      })
+    );
+    const DataToRemove = data;
+    setData(
+      dataList.filter((elem) => {
+        return elem._id !== DataToRemove._id;
+      })
+    );
+  };
+
   const credentials = (
     <ul>
-      <li>{data.firstname + " " + data.lastname}</li>
+      <li>{data.firstName + " " + data.lastName}</li>
       <li>
         <a href={`tel:+91${data.phoneNo}`}>{data.phoneNo}</a>
       </li>
@@ -31,7 +61,12 @@ function EnquiryCard({ data }) {
             return setIcon("mdi:message");
           }}
         ></Icon>
-        <Icon icon={"mdi:trash"} width={"30px"} className="icon"></Icon>
+        <Icon
+          icon={"mdi:trash"}
+          width={"30px"}
+          className="icon"
+          onClick={() => handleOndelete(data._id)}
+        ></Icon>
       </div>
     </div>
   );

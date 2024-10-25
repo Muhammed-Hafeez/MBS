@@ -1,14 +1,11 @@
-export default async function apiRequest(
-  url,
-  method,
-  body = null,
-) {
+export default async function apiRequest(url, method, body = null) {
   try {
     let options = {
       method: method,
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
     };
 
     if (body) {
@@ -16,6 +13,7 @@ export default async function apiRequest(
     }
 
     let response = await fetch(url, options);
+
     let data = await response.json();
     return data;
   } catch (error) {

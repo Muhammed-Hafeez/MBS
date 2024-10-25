@@ -1,60 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import EnquiryCard from "../components/EnquiryCard";
+import { getLeads } from "../../services/analytics";
+import { useNavigate } from "react-router-dom";
 
 function Enquiries() {
-  const data = [
-    {
-      firstname: "hafeez",
-      lastname: "ulla",
-      phoneNo: "9741893288",
-      email: "hafeez97418@gmail.com",
-      message:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis aliquid dolorum libero odit magni nulla ipsum harum eveniet dignissimos laboriosam facilis nesciunt itaque, possimus vel fugit ea. Animi, ducimus ipsam!",
-      id: 1,
-    },
-    {
-      firstname: "hafeez",
-      lastname: "ulla",
-      phoneNo: "9741893288",
-      email: "hafeez97418@gmail.com",
-      message:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis aliquid dolorum libero odit magni nulla ipsum harum eveniet dignissimos laboriosam facilis nesciunt itaque, possimus vel fugit ea. Animi, ducimus ipsam!",
-      id: 2,
-    },
-    {
-      firstname: "hafeez",
-      lastname: "ulla",
-      phoneNo: "9741893288",
-      email: "hafeez97418@gmail.com",
-      message:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis aliquid dolorum libero odit magni nulla ipsum harum eveniet dignissimos laboriosam facilis nesciunt itaque, possimus vel fugit ea. Animi, ducimus ipsam!",
-      id: 3,
-    },
-    {
-      firstname: "hafeez",
-      lastname: "ulla",
-      phoneNo: "9741893288",
-      email: "hafeez97418@gmail.com",
-      message:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis aliquid dolorum libero odit magni nulla ipsum harum eveniet dignissimos laboriosam facilis nesciunt itaque, possimus vel fugit ea. Animi, ducimus ipsam!",
-      id: 4,
-    },
-    {
-      firstname: "hafeez",
-      lastname: "ulla",
-      phoneNo: "9741893288",
-      email: "hafeez97418@gmail.com",
-      message:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis aliquid dolorum libero odit magni nulla ipsum harum eveniet dignissimos laboriosam facilis nesciunt itaque, possimus vel fugit ea. Animi, ducimus ipsam!",
-      id: 5,
-    },
-  ];
+  const [data, setData] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchLeads = async () => {
+      try {
+        const leads = await getLeads();
+        if (leads === false) {
+          return navigate("/error");
+        }
+        setData(leads.data);
+        console.log(leads);
+      } catch (error) {
+        console.error("Failed to fetch leads:", error);
+      }
+    };
+
+    fetchLeads();
+  }, []);
+
   return (
     <div className="Enq">
       <h1>Enquiries</h1>
 
       {data.map((d) => {
-        return <EnquiryCard data={d} key={d.id} />;
+        return <EnquiryCard data={d} key={d._id} dataList={data} setData={setData} />;
       })}
     </div>
   );

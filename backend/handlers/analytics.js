@@ -72,9 +72,9 @@ exports.getLeads = captureErr(async (req, res, next) => {
 
 exports.deleteLead = captureErr(async (req, res, next) => {
   const paramsId = req.params.id;
-  let updateResult = await AnalyticsSchema.findOneAndUpdate(
+  await AnalyticsSchema.findOneAndUpdate(
     {},
-    { $pull: { leads: { id: paramsId } } }, // Remove the lead with the matching id
+    { $pull: { leads: { _id: paramsId } } }, // Remove the lead with the matching id
     { new: true } // Return the updated document
   );
   res
@@ -100,4 +100,3 @@ exports.getUsers = captureErr(async (req, res, next) => {
   });
   res.status(200).json({ success: true, data: updatedUsersArray });
 });
-
