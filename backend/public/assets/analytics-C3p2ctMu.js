@@ -1,0 +1,1 @@
+import{d as a}from"./index-Bl3Jepdn.js";const n="http:",o=window.location.hostname,c=80,t=`${n}//${o}:${c}`;async function i(){const s=await a(t+"/api/analytics/leads","GET");return s.success===!1?!1:s}async function l(s){return await a(t+"/api/analytics/leads","POST",s)}async function u(s){return await a(t+`/api/analytics/leads/${s}`,"DELETE")}export{i as a,u as d,l as g};
