@@ -1,7 +1,7 @@
 import apiRequest from "../utils/fetchApi";
 
 // import apiRequest from "../utils/fetchApi";
-const protocol = 'http:'; // e.g., 'http:' or 'https:'
+const protocol = window.location.protocol; // e.g., 'http:' or 'https:'
 const host = window.location.hostname; // e.g., 'localhost' or 'example.com'
 const port = 80; // e.g., '3000', '80', or '' (empty for default ports)
 const baseURL = `${protocol}//${host}:${port}`;
