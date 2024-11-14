@@ -170,9 +170,8 @@ exports.serviceCardDataValidation = [
 
   check("Home").isBoolean().withMessage("Home must be a boolean value"),
 ];
- 
 
-//webdata 
+//webdata
 exports.webDataValidation = [
   check("smallDescription")
     .notEmpty()
@@ -194,9 +193,7 @@ exports.webDataValidation = [
 
   check("addressForLink")
     .notEmpty()
-    .withMessage("Address for link is required")
-    .isURL()
-    .withMessage("Address for link must be a valid URL"),
+    .withMessage("Address for link is required"),
 
   check("email")
     .notEmpty()

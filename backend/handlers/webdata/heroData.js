@@ -1,6 +1,7 @@
 const { captureErr } = require("../../error/CatchAsyncErr");
 const WebData = require("../../models/CMS");
 const { validationResult } = require("express-validator");
+
 exports.getHeroData = captureErr(async (req, res, next) => {
   const data = await WebData.findOne({}, { herodata: 1 });
   if (!data) {

@@ -37,7 +37,7 @@ exports.patchWebData = captureErr(async (req, res, next) => {
           smallDescription,
           addressInWords,
           addressForMaps,
-          addressForLink,
+          addressForLink:addressForLink,
           email,
           phoneNo,
           timings,

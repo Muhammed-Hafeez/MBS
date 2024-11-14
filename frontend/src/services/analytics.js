@@ -24,3 +24,8 @@ export async function deleteLead(id) {
   );
   return response;
 }
+
+export async function getUsers() {
+  const response = await apiRequest(baseURL + `/api/analytics/users`, "GET");
+  return response;
+}

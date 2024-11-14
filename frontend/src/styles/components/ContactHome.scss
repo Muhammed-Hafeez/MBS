@@ -32,12 +32,19 @@
   }
 }
 
+.checkbox{
+  width: fit-content !important;
+  margin: 1rem 2rem 2rem 0px !important;
+}
 @media (width <= 950px) {
   .ContactForm span {
     flex-direction: column !important;
     input {
       margin: 0.8rem 0px !important;
     }
+  }
+  .ContactForm .btn-holder{
+    flex-direction: row !important;
   }
 }
 @media (width <= 450px) {

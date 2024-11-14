@@ -64,7 +64,7 @@ const webDataSchema = new Schema(
       smallDescription: { type: String, required: true },
       addressInWords: { type: String, required: true },
       addressForMaps: { type: String, required: true },
-      addreaaForLink: { type: String, required: true },
+      addressForLink: { type: String, required: true },
       email: { type: String, required: true },
       phoneNo: { type: String, required: true },
       timings: { type: String, required: true },

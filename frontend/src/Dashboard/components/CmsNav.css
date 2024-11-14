@@ -1,0 +1,67 @@
+/* Navbar Container */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: black;
+    border: 2px solid white;
+    margin: 2rem 0px;
+}
+
+/* Logo */
+.navbar-logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Links */
+.navbar-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.navbar-link:hover {
+    color: #ffd700;
+}
+
+/* Toggle Button (for mobile) */
+.navbar-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: black;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        border: 2px solid white;
+        display: none;
+    }
+
+    .navbar-links.open {
+        display: flex;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+}

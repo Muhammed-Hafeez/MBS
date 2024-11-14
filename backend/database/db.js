@@ -9,10 +9,10 @@ const clientOptions = {
 const connectDatabase = async () => {
   try {
     await mongoose.connect(uri, clientOptions);
-    console.log("database Connected");
+    ("database Connected");
     return
   } catch (err) {
-    console.log(err.message);
+    (err.message);
     process.exit(1);
   }
 };
