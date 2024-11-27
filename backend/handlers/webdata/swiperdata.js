@@ -54,6 +54,7 @@ exports.addSwiperImage = captureErr(async (req, res, next) => {
 
 exports.patchSwiperImage = captureErr(async (req, res, next) => {
   const { id } = req.params; // Get the swiper image's id from the request params
+  
   const { image, alt } = req.body;
   const validationresult = validationResult(req);
   if (!validationresult.isEmpty()) {
@@ -70,11 +71,11 @@ exports.patchSwiperImage = captureErr(async (req, res, next) => {
       },
     }
   );
-
+  
   if (result.modifiedCount === 0) {
     res.status(404).json({
       success: false,
-      message: "Failed to update swiper image. ID not found.",
+      message: "no changes were made to swiper data",
     });
   } else {
     res.status(200).json({

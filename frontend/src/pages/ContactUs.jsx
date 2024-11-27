@@ -1,14 +1,34 @@
+import { useEffect, useState} from "react";
 import ContactHome from "../components/ContactHome.jsx";
 import { Icon } from "@iconify/react";
-import Websitedata from "../data/webdata.json";
-function ContactUs() {
-  const data = {
-    location: Websitedata.addressForMaps,
-    anchorlocation: Websitedata.addreaaForLink,
-    email: Websitedata.email,
-    phoneno: Websitedata.phoneNo,
-    addressInWords:Websitedata.addressInWords
-  };
+import { getWebData } from "../services/cms/webdata.js";
+import Spinner from "../components/Spinner.jsx";
+
+export default function ContactUs() {
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const webData = await getWebData();
+        setData(webData.data); // Normal synchronous update
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    })();
+  }, []);
+
+  if (isLoading) {
+    return <Spinner/>; // Fallback is already handled by Suspense
+  }
+
+  if (!data) {
+    return <p>Error: Failed to load data</p>;
+  }
+
   return (
     <div>
       <ContactHome />
@@ -16,32 +36,32 @@ function ContactUs() {
       <div className="OurLocation">
         <iframe
           title="our location"
-          src={data.location}
+          src={data.addressForMaps}
           style={{ border: "0px" }}
           loading="lazy"
         ></iframe>
         <div className="info">
           <ul>
             <li>
-              <a href={data.anchorlocation} aria-label="location">
-                <Icon icon="mdi:location" style={{ width: "30px" }}></Icon>
-                <span>Ramdev Medical BTM Layout</span>
+              <a href={data.addressForLink} aria-label="location">
+                <Icon icon="mdi:location" style={{ width: "30px" }} />
+                <span>{data.addressInWords}</span>
               </a>
             </li>
             <li>
-              <Icon icon="mdi:clock" style={{ width: "30px" }}></Icon>
-              <p>{ data.addressInWords}</p>
+              <Icon icon="mdi:clock" style={{ width: "30px" }} />
+              <p>{data.timings}</p>
             </li>
             <li>
-              <Icon icon="mdi:mail" style={{ width: "30px" }}></Icon>
+              <Icon icon="mdi:mail" style={{ width: "30px" }} />
               <a href={`mailto:${data.email}`} aria-label="business email">
                 {data.email}
               </a>
             </li>
             <li>
-              <Icon icon="mdi:phone" style={{ width: "30px" }}></Icon>
+              <Icon icon="mdi:phone" style={{ width: "30px" }} />
               <a href={`tel:+91${data.phoneno}`} aria-label="business phoneno">
-                {data.phoneno}
+                {data.phoneNo}
               </a>
             </li>
           </ul>
@@ -50,5 +70,3 @@ function ContactUs() {
     </div>
   );
 }
-
-export default ContactUs;

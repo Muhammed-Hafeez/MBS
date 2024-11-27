@@ -2,8 +2,17 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
-import swiperData from "../data/SwiperData.json"
-const CustomSwiper = ({data}) => {
+// import swiperData from "../data/SwiperData.json"
+import { useEffect, useState } from "react";
+import { getSwiperImages } from "../services/cms/swiper";
+const CustomSwiper = () => {
+  const [swiperData, setSwiperData] = useState([]);
+  useEffect(() => {
+    (async () => {
+      const response = await getSwiperImages();
+      setSwiperData(response.data);
+    })();
+  }, []);
   return (
     <div className="swiper-container">
       <Swiper

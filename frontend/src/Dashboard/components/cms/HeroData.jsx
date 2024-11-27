@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { getHeroData } from "../../../services/cms/herodata";
+import { getHeroData, patchHeroData } from "../../../services/cms/herodata";
+import { useDispatch } from "react-redux";
+import { alertIsCalled } from "../../../features/counter";
 
 function HeroData() {
+  const dispatch = useDispatch();
   const [data, setData] = useState({
     About: { title: "", heading: "", body: "", image: "" },
     Services: { title: "", heading: "", body: "", image: "" },
@@ -59,7 +62,22 @@ function HeroData() {
           />
         </form>
       ))}
-      <button className="btn">Save</button>
+      <button
+        className="btn"
+        onClick={async (e) => {
+          e.preventDefault();
+          const result = await patchHeroData(data);
+          dispatch(
+            alertIsCalled({
+              called: true,
+              type: result.success ? "info" : "warning ",
+              message: result.message,
+            })
+          );
+        }}
+      >
+        Save
+      </button>
     </div>
   );
 }

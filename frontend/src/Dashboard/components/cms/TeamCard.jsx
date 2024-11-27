@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { getTeamCard } from "../../../services/cms/teamcard";
+import { deleteTeamCard, getTeamCard, postTeamCard, updateTeamCard } from "../../../services/cms/teamcard";
+import { alertIsCalled } from "../../../features/counter";
+import { useDispatch } from "react-redux";
 
 function TeamCard() {
   const [data, setData] = useState([]);
@@ -9,7 +11,7 @@ function TeamCard() {
   const [newSrc, setNewSrc] = useState("");
   const [newAlt, setNewAlt] = useState("");
   const [newName, setNewName] = useState("");
-
+  const dispatch = useDispatch();
   // Function to update individual card data
   const handleChange = (index, field, value) => {
     const updatedData = [...formData];
@@ -31,25 +33,45 @@ function TeamCard() {
       {/* New Team Card Form */}
       <h1 className="title col-rare">Create Team Card</h1>
       <form className="ContactForm">
-          <input
-            type="text"
-            placeholder="Image Source URL*"
-            required
-            onChange={(e) => setNewSrc(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Alt Text*"
-            required
-            onChange={(e) => setNewAlt(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Name*"
-            required
-            onChange={(e) => setNewName(e.target.value)}
-          />
-        <button className="btn" type="submit">Add</button>
+        <input
+          type="text"
+          placeholder="Image Source URL*"
+          required
+          onChange={(e) => setNewSrc(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Alt Text*"
+          required
+          onChange={(e) => setNewAlt(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Name*"
+          required
+          onChange={(e) => setNewName(e.target.value)}
+        />
+        <button
+          className="btn"
+          type="submit"
+          onClick={async (e) => {
+            e.preventDefault();
+            const result = await postTeamCard({
+              src: newSrc,
+              alt: newAlt,
+              name: newName,
+            });
+            dispatch(
+              alertIsCalled({
+                called: true,
+                type: result.success ? "info" : "warning ",
+                message: result.message,
+              })
+            );
+          }}
+        >
+          Add
+        </button>
       </form>
 
       {/* Displaying All Team Cards */}
@@ -80,8 +102,43 @@ function TeamCard() {
             onChange={(e) => handleChange(index, "name", e.target.value)}
           />
           <span className="btn-holder">
-            <button className="btn" type="submit">Save</button>
-            <button className="btn" type="button">Delete</button>
+            <button
+              className="btn"
+              type="submit"
+              onClick={async (e) => {
+                e.preventDefault();
+                const result = await updateTeamCard(
+                  element.id,
+                  formData[index]
+                );
+                dispatch(
+                  alertIsCalled({
+                    called: true,
+                    type: result.success ? "info" : "warning ",
+                    message: result.message,
+                  })
+                );
+              }}
+            >
+              Save
+            </button>
+            <button
+              className="btn"
+              type="button"
+              onClick={async (e) => {
+                e.preventDefault();
+                const result = await deleteTeamCard(element.id);
+                dispatch(
+                  alertIsCalled({
+                    called: true,
+                    type: result.success ? "info" : "warning ",
+                    message: result.message,
+                  })
+                );
+              }}
+            >
+              Delete
+            </button>
           </span>
         </form>
       ))}

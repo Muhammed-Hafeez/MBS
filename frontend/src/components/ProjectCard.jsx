@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import projects from "../data/projects.json"
 const ProjectCard = ({ image, title, description, link }) => {
+  
   return (
     <div className="project-card">
       <div className="card">
@@ -21,9 +21,9 @@ const ProjectCard = ({ image, title, description, link }) => {
   );
 };
 
-const ProjectCards = () => {
+const ProjectCards = ({data}) => {
   
-
+ const projects = data;
   return (
     <div className="project-cards">
       {projects.map((project, index) => (

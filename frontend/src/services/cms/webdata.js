@@ -9,7 +9,7 @@ export async function getWebData() {
   const webdata = await apiRequest(baseURL + "/api/cms/webdata", "GET");
   return webdata;
 }
-export async function getTeamCard() {
-  const teamcards = await apiRequest(baseURL + "/api/cms/team", "GET");
+export async function patchWebCard(data) {
+  const teamcards = await apiRequest(baseURL + "/api/cms/webdata", "PATCH", data);
   return teamcards;
 }

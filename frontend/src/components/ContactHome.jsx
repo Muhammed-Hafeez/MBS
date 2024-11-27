@@ -21,7 +21,6 @@ function ContactHome() {
       message,
     };
     const result = await genrateLead(leadToSend);
-    console.log("leadToSend:", leadToSend);
     if (result.success === false) {
       dispatch(
         alertIsCalled({

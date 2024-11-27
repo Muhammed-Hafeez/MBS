@@ -10,3 +10,26 @@ export async function getServiceCard() {
   );
   return serviceCards;
 }
+export async function postServiceCard(data) {
+  const serviceCards = await apiRequest(
+    baseURL + "/api/cms/servicecard/",
+    "POST",
+    data
+  );
+  return serviceCards;
+}
+export async function patchServiceCard(id, data) {
+  const serviceCards = await apiRequest(
+    baseURL + `/api/cms/servicecard/${id}`,
+    "PATCH",
+    data
+  );
+  return serviceCards;
+}
+export async function deleteServiceCard(id) {
+  const serviceCards = await apiRequest(
+    baseURL + `/api/cms/servicecard/${id}`,
+    "DELETE"
+  );
+  return serviceCards;
+}

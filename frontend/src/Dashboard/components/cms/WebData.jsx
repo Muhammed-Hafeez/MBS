@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { getWebData } from "../../../services/cms/webdata";
+import { getWebData, patchWebCard } from "../../../services/cms/webdata";
+import { useDispatch } from "react-redux";
+import { alertIsCalled } from "../../../features/counter";
 
 function WebData() {
+  const dispatch = useDispatch();
   const [data, setData] = useState({});
   const [formData, setFormData] = useState({
     smallDescription: "",
@@ -127,7 +130,21 @@ function WebData() {
           </div>
         ))}
 
-        <button className="btn" type="submit">
+        <button
+          className="btn"
+          type="submit"
+          onClick={async (e) => {
+            e.preventDefault();
+            const result = await patchWebCard(data);
+            dispatch(
+              alertIsCalled({
+                called: true,
+                type: result.success ? "info" : "warning ",
+                message: result.message,
+              })
+            );
+          }}
+        >
           Save Changes
         </button>
       </form>

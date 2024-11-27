@@ -1,6 +1,20 @@
-import projectData from "../data/projects.json";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { getProjectCard } from "../services/cms/projectcard";
+import Spinner from "../components/Spinner";
+
 const ProjectPage = ({ project }) => {
+  if (!project) {
+    return (
+      <div className="error-message">
+        <h1>Project Not Found</h1>
+        <p>
+          The project you are looking for does not exist or has been removed.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="project-page">
       <div className="project-header">
@@ -23,8 +37,50 @@ const ProjectPage = ({ project }) => {
 };
 
 export default function Project() {
-  const params = useParams();
-  const id = params.id;
-  const project = projectData.find((obj) => obj.id === Number(id));
+  const [projectData, setProjectData] = useState([]);
+  const [error, setError] = useState(null); // Error state for handling fetch errors
+  const [loading, setIsLoading] = useState(true);
+  const { id } = useParams();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const projectCard = await getProjectCard();
+        setProjectData(projectCard.data);
+      } catch (err) {
+        console.error("Error fetching data:", err);
+        setError("Failed to load data. Please try again later.");
+      } finally {
+        setIsLoading(false);
+      }
+    })();
+  }, []);
+
+  if (loading) return <Spinner />;
+
+  if (error) {
+    return (
+      <div className="error-message">
+        <h1>Oops!</h1>
+        <p>{error}</p>
+        {/* Optionally add a retry button */}
+      </div>
+    );
+  }
+  
+  const project = projectData.find((obj) => obj.id === id);
+
+  if (!project) {
+    return (
+      <div className="error-message">
+        <h1>Project Not Found</h1>
+        <p>
+          We couldn’t find the project you’re looking for. Check the URL or
+          browse other projects.
+        </p>
+      </div>
+    );
+  }
+
   return <ProjectPage project={project} />;
 }

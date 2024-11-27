@@ -10,8 +10,8 @@ export async function getHeroData() {
   const herodata = await apiRequest(baseURL + "/api/cms/herodata", "GET");
   return herodata;
 }
-export async function patchHeroData() {
-  const teamcards = await apiRequest(baseURL + "/api/cms/team", "GET");
-  return teamcards;
+export async function patchHeroData(data) {
+  const herodata = await apiRequest(baseURL + "/api/cms/herodata", "PATCH", data);
+  return herodata;
 }
 

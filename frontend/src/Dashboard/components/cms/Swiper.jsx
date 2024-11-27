@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { getSwiperImages } from "../../../services/cms/swiper";
+import {
+  deleteSwiperImages,
+  getSwiperImages,
+  patchSwiperImages,
+  postSwiperImages,
+} from "../../../services/cms/swiper";
+import { useDispatch } from "react-redux";
+import { alertIsCalled } from "../../../features/counter";
 
 function Swiper() {
+  const dispatch = useDispatch();
   const [data, setData] = useState([]);
   const [formData, setFormData] = useState([]);
 
@@ -23,7 +31,7 @@ function Swiper() {
       if (response.success) {
         setData(response.data);
         setFormData(response.data);
-      }      
+      }
     })();
   }, []);
 
@@ -51,8 +59,19 @@ function Swiper() {
         <button
           className="btn"
           type="button"
-          onClick={() => {
-            /* Add new image function here */
+          onClick={async (e) => {
+            e.preventDefault();
+            const result = await postSwiperImages({
+              image: newUrl,
+              alt: newAlt,
+            });
+            dispatch(
+              alertIsCalled({
+                called: true,
+                type: result.success ? "info" : "warning ",
+                message: result.message,
+              })
+            );
           }}
         >
           Add
@@ -80,10 +99,41 @@ function Swiper() {
             onChange={(e) => handleChange(index, "alt", e.target.value)}
           />
           <span className="btn-holder">
-            <button className="btn" type="submit">
+            <button
+              className="btn"
+              type="submit"
+              onClick={async (e) => {
+                e.preventDefault();
+                const result = await patchSwiperImages(
+                  element.id,
+                  formData[index]
+                );
+                dispatch(
+                  alertIsCalled({
+                    called: true,
+                    type: result.success ? "info" : "warning ",
+                    message: result.message,
+                  })
+                );
+              }}
+            >
               Save
             </button>
-            <button className="btn" type="button">
+            <button
+              className="btn"
+              type="button"
+              onClick={async (e) => {
+                e.preventDefault();
+                const result = await deleteSwiperImages(element.id);
+                dispatch(
+                  alertIsCalled({
+                    called: true,
+                    type: result.success ? "info" : "warning ",
+                    message: result.message,
+                  })
+                );
+              }}
+            >
               Delete
             </button>
           </span>

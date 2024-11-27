@@ -18,7 +18,7 @@ export async function postAboutCard(body) {
 }
 export async function patchAboutCard(id, body) {
   const aboutcards = await apiRequest(
-    baseURL + `/api/cms/aboutcard${id}`,
+    baseURL + `/api/cms/aboutcard/${id}`,
     "PATCH",
     body
   );
@@ -26,7 +26,7 @@ export async function patchAboutCard(id, body) {
 }
 export async function deleteAboutCard(id) {
   const aboutcards = await apiRequest(
-    baseURL + `/api/cms/aboutcard${id}`,
+    baseURL + `/api/cms/aboutcard/${id}`,
     "DELETE"
   );
   return aboutcards;

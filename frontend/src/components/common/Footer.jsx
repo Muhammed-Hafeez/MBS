@@ -1,17 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import websiteData from "../../data/webdata.json";
+// import websiteData from "../../data/webdata.json";
+import { getWebData } from "../../services/cms/webdata";
+
 const Footer = () => {
+  const [websiteData, setWebsiteData] = useState({
+    smallDescription: "",
+    addressInWords: "",
+    email: "",
+    phoneNo: "",
+    timings: "",
+    socialMedia: [],
+  });
+  useEffect(() => {
+    (async () => {
+      const response = await getWebData();
+      setWebsiteData(response.data);
+    })();
+  }, []);
   const data = {
     aboutinfo: websiteData.smallDescription,
     address: websiteData.addressInWords,
     email: websiteData.email,
     phoneno: websiteData.phoneNo,
     businessHours: websiteData.timings,
-    socialMedia: websiteData.socialMedia
+    socialMedia: websiteData.socialMedia,
   };
-  
+
   return (
     <footer className="footer">
       <div className="container">

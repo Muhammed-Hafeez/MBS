@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { getProjectCard } from "../../../services/cms/projectcard";
+import {
+  deleteProjectCard,
+  getProjectCard,
+  patchProjectCard,
+  postProjectCard,
+} from "../../../services/cms/projectcard";
+import { useDispatch } from "react-redux";
+import { alertIsCalled } from "../../../features/counter";
 
 function ProjectCard() {
   const [data, setData] = useState([]);
   const [formData, setFormData] = useState([]);
-
+  const dispatch = useDispatch();
   // For creating a new team card
   const [newImage, setNewImage] = useState("");
   const [newTitle, setNewTitle] = useState("");
@@ -58,7 +65,26 @@ function ProjectCard() {
           required
           onChange={(e) => setNewDetails(e.target.value)}
         />
-        <button className="btn" type="submit">
+        <button
+          className="btn"
+          type="submit"
+          onClick={async (e) => {
+            e.preventDefault();
+            const result = await postProjectCard({
+              image: newImage,
+              description: newDescription,
+              title: newTitle,
+              details: newDetails,
+            });
+            dispatch(
+              alertIsCalled({
+                called: true,
+                type: result.success ? "info" : "warning ",
+                message: result.message,
+              })
+            );
+          }}
+        >
           Add
         </button>
       </form>
@@ -97,10 +123,45 @@ function ProjectCard() {
             onChange={(e) => handleChange(index, "details", e.target.value)}
           />
           <span className="btn-holder">
-            <button className="btn" type="submit">
+            <button
+              className="btn"
+              type="submit"
+              onClick={async (e) => {
+                e.preventDefault();
+                const { image, title, description, details, id } =
+                  formData[index];
+                const result = await patchProjectCard(id, {
+                  image,
+                  title,
+                  description,
+                  details,
+                });
+                dispatch(
+                  alertIsCalled({
+                    called: true,
+                    type: result.success ? "info" : "warning ",
+                    message: result.message,
+                  })
+                );
+              }}
+            >
               Save
             </button>
-            <button className="btn" type="button">
+            <button
+              className="btn"
+              type="button"
+              onClick={async (e) => {
+                e.preventDefault();
+                const result = await deleteProjectCard(formData[index].id);
+                dispatch(
+                  alertIsCalled({
+                    called: true,
+                    type: result.success ? "info" : "warning ",
+                    message: result.message,
+                  })
+                );
+              }}
+            >
               Delete
             </button>
           </span>

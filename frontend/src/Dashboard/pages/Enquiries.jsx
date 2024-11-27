@@ -15,7 +15,6 @@ function Enquiries() {
           return navigate("/error");
         }
         setData(leads.data);
-        console.log(leads);
       } catch (error) {
         console.error("Failed to fetch leads:", error);
       }

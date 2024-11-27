@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { getAboutCard } from "../../../services/cms/aboutcard";
+import {
+  deleteAboutCard,
+  getAboutCard,
+  patchAboutCard,
+  postAboutCard,
+} from "../../../services/cms/aboutcard";
+import { alertIsCalled } from "../../../features/counter";
+import { useDispatch } from "react-redux";
 
 function AboutCard() {
   const [data, setData] = useState([]);
@@ -7,7 +14,7 @@ function AboutCard() {
   const [newTitle, setNewTitle] = useState("");
   const [newImage, setNewImage] = useState("");
   const [newDescription, setNewDescription] = useState("");
-
+  const dispatch = useDispatch();
   // Update a specific card’s field
   const handleChange = (index, field, value) => {
     const updatedData = [...formData];
@@ -48,7 +55,25 @@ function AboutCard() {
           required
           onChange={(e) => setNewDescription(e.target.value)}
         />
-        <button className="btn" type="submit">
+        <button
+          className="btn"
+          type="submit"
+          onClick={async (e) => {
+            e.preventDefault();
+            const result = await postAboutCard({
+              image: newImage,
+              description: newDescription,
+              title: newTitle,
+            });
+            dispatch(
+              alertIsCalled({
+                called: true,
+                type: result.success ? "info" : "warning ",
+                message: result.message,
+              })
+            );
+          }}
+        >
           Add
         </button>
       </form>
@@ -83,10 +108,41 @@ function AboutCard() {
             onChange={(e) => handleChange(index, "description", e.target.value)}
           />
           <span className="btn-holder">
-            <button className="btn" type="submit">
+            <button
+              className="btn"
+              type="submit"
+              onClick={async (e) => {
+                e.preventDefault();
+                const result = await patchAboutCard(
+                  element.id,
+                  formData[index]
+                );
+                dispatch(
+                  alertIsCalled({
+                    called: true,
+                    type: result.success ? "info" : "warning ",
+                    message: result.message,
+                  })
+                );
+              }}
+            >
               Save
             </button>
-            <button className="btn" type="button">
+            <button
+              className="btn"
+              type="button"
+              onClick={async (e) => {
+                e.preventDefault();
+                const result = await deleteAboutCard(element.id);
+                dispatch(
+                  alertIsCalled({
+                    called: true,
+                    type: result.success ? "info" : "warning ",
+                    message: result.message,
+                  })
+                );
+              }}
+            >
               Delete
             </button>
           </span>
